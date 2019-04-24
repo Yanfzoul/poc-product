@@ -1,3 +1,7 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+	<sly data-sly-call="${clientlib.all @ categories='aem-template.site.product-carousel'}"/>
+</sly>
+
 <div data-sly-use.products="com.adobe.poc.core.ProductCategorySlider"
 	data-sly-unwrap>
 	<div class="owl-carousel owl-theme product-slider product-carousel">

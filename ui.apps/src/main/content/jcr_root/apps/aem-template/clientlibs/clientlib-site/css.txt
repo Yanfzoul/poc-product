@@ -27,6 +27,8 @@ less/carousel/carousel.less
 less/exp-fragment/exp-fragment.less
 less/insta-feed/insta-feed.less
 less/title/title.less
+less/product-detail/product-detail.less
+less/input-banner/input-banner.less
 
 less/image/shadow.less
 less/image/rounded.less

@@ -1,0 +1,54 @@
+@import "/apps/aem-template/clientlibs/clientlib-site/less/variables.less";
+
+
+.input-banner {
+    position: relative;
+    color: @main-color-text;
+    text-align: center;
+
+	.banner-title {
+        color: inherit;
+        padding: 15px 0px;
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    .banner-input {
+        input[type=text] {
+        	width: 30%;
+  			padding: 12px 20px;
+  			margin-bottom: 20px;
+  			display: inline-block;
+  			border: 1px solid #ccc;
+  			border-radius: 5px;
+  			box-sizing: border-box;
+        }
+    }
+
+    .btn-go {
+		background-color: @main-color;
+        color: #FFF;
+        padding: 13px 10px;
+        border-radius: 5px;
+        margin: 8px 0;
+    }
+
+    .btn-close {
+        color: inherit;
+        position: absolute;
+        top: 10%;
+        right: 5%;
+    }
+
+    @media (max-width: 650px){
+		.banner-title {
+            font-size: 25px;
+        }
+
+        .banner-input {
+            input[type=text] {
+				width: 70%;
+            }
+        }
+    }
+}
