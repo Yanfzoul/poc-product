@@ -1,0 +1,47 @@
+<script>
+	function affiche(sku, max) {
+    	var i=0;
+        while (i < max) {
+            $("#" + i + "").hide();
+            i++;
+        }
+    	$("#" + sku + "").show();
+    }
+
+function changeFunc() {
+    var selectBox = document.getElementById("selectBox");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    affiche(selectBox.selectedIndex, selectBox.length);
+   }
+
+$( document ).ready(function() {
+    changeFunc();
+});
+
+</script>
+<div data-sly-use.product="com.adobe.configurableproduct.core.ConfigurableProduct">
+    <p>${properties.label}</p>
+    <p>Type du produit ${ product.typeProduct }</p>
+    <select data-sly-list="${ product.products }" id="selectBox" onchange='changeFunc();'>
+	  <option value="${item.sku}" >${item.name}</option>
+	</select>
+	</p>
+    <div data-sly-repeat="${ product.products }" id="${itemList.index}" style="display:none">
+	  <p>Nom : ${item.name}</p>
+      <p>Prix ${item.price} &#8364;</p>
+      <div data-sly-repeat="${ item.custom_attributes }">
+      	<div data-sly-test="${item.attribute_code == 'thumbnail'}">
+          ${item.attribute_code} : <img src="${item.value}" style="width:25px;height:25px"/>
+		</div>
+		<div data-sly-test="${item.attribute_code == 'image'}">
+		    ${item.attribute_code} : <img src="${item.value}" style="width:100px;height:100px"/>
+		</div>
+		<div data-sly-test="${item.attribute_code == 'small_image'}">
+		    ${item.attribute_code} : <img src="${item.value}" style="width:40px;height:40px"/>
+		</div>
+		<div data-sly-test="${item.attribute_code == 'swatch_image'}">
+		    ${item.attribute_code} : <img src="${item.value}" style="width:50px;height:50px"/>
+		</div>
+      </div>
+	</div>
+</div>

@@ -1,0 +1,525 @@
+<!--/*
+    Copyright 2016 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+
+<!-- Customised Version of Product page for CULTURA demo :construction: -->
+
+
+
+
+
+<div class="we-Product cq-dd-product-data-reference"
+     data-sly-use.productModel="com.adobe.configurableproduct.core.VariantProduct"
+     data-sly-use.hapiProduct="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/product'}"
+     data-sly-attribute="${hapiProduct.itemtype}">
+
+    <div class="product-main-container" id="product">
+        <article>
+            <div>
+                <!-- main container -->
+
+
+
+                <div class="product-essential">
+                    <section id="image">
+                        <div class="product-img-box">
+                            <img src="${productModel.productItem.imageUrl}" alt="Product Image ${productModel.productItem.imageUrl} " >
+
+
+
+
+                        </div>
+                        <div class="reference hidden-on-phone">
+                            <p class="product-ids">
+
+
+
+
+                                REF: ${productModel.productItem.sku} -  ${productModel.productItem.attributeMap.translator} - ${productModel.productItem.attributeMap.product_brand}  -${productModel.productItem.attributeMap.specs}</p>
+                        </div>
+                    </section>
+                    <div class="product-shop">
+                        <div class="product-main-info">
+                            <div class="product-name">
+                                <header>
+                                    <hgroup>
+                                        <h1 itemprop="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                            ${productModel.productItem.title}                                       </font></font></h1>
+                                    </hgroup>
+                                </header>
+                            </div>
+
+                            <div class="subtitle">
+                                <div class="people with-series peoplemin open">
+                                    <h2>
+
+
+                                    </h2>                                    </div>
+                                <div class="people with-series peopleall closed">
+                                    <h2>
+
+
+                                    </h2>                                    </div>
+
+                            </div>
+                            <section id="avantages">
+                                <div class="extra-hints">
+
+
+
+
+                                    <div class="product-under-wrapper">
+                                        <div class="alert-wrapper">
+                                            <div class="wishlist-class">
+
+
+
+                                                <ul class="add-to-links">
+                                                    <li>
+                                                        <a rel="nofollow" href="#" class="add-to-wishlist-button link-wishlist" onclick="return false;" id="add-to-wishlist-button-4325109" style="">
+                                                            <i class="icon icon_favoris_full"></i>
+                                                            <span class="visible-only-full"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Add to wish list</font></font></span>
+                                                            <span class="hidden-on-full"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Wishlist</font></font></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                            <div>
+                                                <button type="button" title="Subscribe to price alerts" class="alert-price link-price-alert" >
+                                                    <i class="icon icon_customalert"></i>
+                                                    <span class="visible-only-full"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Price alert</font></font></span>
+                                                    <span class="hidden-on-full"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Price</font></font></span>
+                                                </button>
+                                            </div>
+
+                                            <div>
+                                                <button type="button" title="Subscribe to news alerts" class="alert-new link-new-alert" >
+                                                    <i class="icon icon_customalert"></i>
+                                                    <span class="visible-only-full"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">New arrivals alert</font></font></span>
+                                                    <span class="hidden-on-full"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">New</font></font></span>
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="social-links">
+                                            <!-- Check whether the plugin is enabled -->
+                                            <!-- AddThis Button BEGIN -->
+                                            <div class="addthis_toolbox addthis_default_style " addthis:url="" addthis:title="" addthis:description="">
+                                                <a class="addthis_button_facebook"></a>
+                                                <a class="addthis_button_twitter"></a>
+                                                <a class="addthis_button_pinterest_share"></a>
+                                                <a class="addthis_button_tumblr"></a>
+                                                <a class="addthis_button_email"></a>
+                                                <a class="addthis_button_compact"></a>
+                                            </div>
+                                            <!-- AddThis Button END -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                            <div class="short-description">
+                                <section id="info">
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">${productModel.productItem.description @context ='styleString'} </font></font></span>
+                                    <a class="see-description" onclick="toggleInfo( $('see-more-description') , 1 )" href="#tab-global-content-description-desktop" title="Read the description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Read the description</font></font></a>
+                                </section>
+                            </div>
+
+
+
+                            <div class="col-55p xl--col-60p tab--col-100p mob--col-100p">
+                            </div>
+                            <div class="series-collections">
+                                <div class="collections">
+                                    <a href="https://www.cultura.com/catalogsearch/result/index/?book_collection=46156&amp;previous_name=SH%C3%94NEN" title="See the collection">
+                                        <i class="icon icon_chevron_right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">See the collection                                        </font></font></a>
+                                </div>
+
+                                <div class="series with-both">
+                                    <a href="https://www.cultura.com/catalogsearch/result/index/?book_series=1203987&amp;previous_name=My+hero+academia" title="My hero academia">
+                                        <i class="icon icon_chevron_right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">See all                                                 </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">My hero academia series</font></font></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="product-page-block-right">
+                            <div class="cssc-grid fluid-grid product-grid">
+                                <div class="col-55p xl--col-60p tab--col-100p mob--col-100p block-left-desktop">
+                                    <div class="add-to-box">
+                                        <div class="container cssc-flex">
+                                            <div class="col-20p">
+                                                <p class="availability in-stock custom"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                    In stock                                                    </font></font></p>
+
+                                                <div class="add-to-cart">
+                                                    <label for="qty" class="hidden-on-phone"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Amount :</font></font></label>
+                                                    <label for="qty" class="visible-only-phone"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Qty.</font></font></label>
+                                                    <div class="qty-picker">
+
+                                                        <select id="qty-picked" name="qty-picked" class="qty-select" onchange="Cultura.QuantityPicker.checkQty('qty'); return false;">
+                                                            <option value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                1                        </font></font></option>
+                                                            <option value="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                2                        </font></font></option>
+                                                            <option value="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                3                        </font></font></option>
+                                                            <option value="4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                4                        </font></font></option>
+                                                            <option value="5"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                5                        </font></font></option>
+                                                            <option value="6"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                6                        </font></font></option>
+                                                            <option value="7"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                7                        </font></font></option>
+                                                            <option value="8"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                8                        </font></font></option>
+                                                            <option value="9"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                9                        </font></font></option>
+                                                            <option value="10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                10+                        </font></font></option>
+                                                        </select>
+                                                        <input type="number" name="qty" id="qty" maxlength="5" value="1" title="Qty." class="input-text qty qty-select" data-initial-qty="1" min="1" max="10000" onclick="this.focus(); this.select();" onchange="Cultura.QuantityPicker.checkQty('qty'); return false;">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="horizontal-separator"></div>
+                                            </div>
+                                            <div id="product-prices">
+
+                                                <div class="price-block">
+                                                    <div class="price-block__label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cultura Award</font></font></div>
+                                                    <div class="discount-container">
+                                                        <div class="picto">
+                                                            &nbsp;
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="prices" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                                                        <link itemprop="availability" href="http://schema.org/InStock"><meta itemprop="priceCurrency" content="EUR">
+                                                        <div class="old-price">
+                                                        </div>
+                                                        <div id="product-price-4325109" class="regular">
+                                                            € ${productModel.productItem.price}     </div>
+
+                                                        <div class="extra-line">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="breaker"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="block-left-bottom-desktop">
+                                        <div id="product-price-global-message-dynamic">
+                                            <div id="product-price-global-message-span">
+                                                <i class="icon icon_livraison_gratuite"></i>
+                                                <span id="product-price-global-message-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Free delivery in store</font></font></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-banner">
+                                            <a href="https://www.cultura.com/livre/bd-humour/mangas.html">
+                                                <img src="https://media.cultura.com/media/banner/f/p/fp_mangas.gif" alt="Manga" title="Manga">
+                                            </a>
+                                        </div>
+                                        <div id="community-actions"></div>
+
+
+                                        <div id="product-reviews-tab"></div>
+                                        <aside>
+                                            <div id="oney-placeholder" style="display:none;">
+                                                <a id="oney-popin" href="#" onclick="javascript:Cultura.Oney.displayPopin('https://www.cultura.com/popin-banque-accord/', 6.6);">
+                                                    <div class="oney-container">
+                                                        <div class="oney-header">
+                                                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pay in several installments </font></font><strong class="without-fees"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">without charge</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> by credit card.                    </font></font></span>
+                                                            <span class="more"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Learn more.</font></font></span>
+                                                        </div>
+                                                        <div class="oney-cart-container">
+                                                            <div class="left">
+                                                                <img src="https://static.cultura.com/skin/frontend/enterprise/cultura-responsive/images/src/oney_cart.png" title="Pay in several installments without fees by credit card" alt="Pay in several installments without fees by credit card">
+                                                            </div>
+                                                            <div class="right">
+                                                                <div id="oney-ajax-result"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                                    # {} Oney_lines
+                                                                </font></font></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="breaker"></div>
+                                            </div>
+                                        </aside>
+                                        <div class="breaker"></div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-45p xl--col-40p tab--col-100p mob--col-100p block-right-desktop" id="is-desktop-and-mobile">
+                                    <div class="block-right-desktop-cta">
+                                        <input type="hidden" name="return_url" value="https://www.cultura.com/checkout/cart/popin/">
+                                        <input type="hidden" name="is_ajax" value="1">
+
+
+
+                                        <div style="text-align: center" class="add-tocart-container">
+                                            <form class="we-Product-form" v-el:weProductForm action="${productModel.addToCartUrl}" method="POST"
+                                                  data-sly-use.hapiProductForm="${'org.apache.sling.hapi.sightly.HApiUse' @ type='/apps/public/weretail/hapi_types/addcartentryform'}"
+                                                  data-sly-attribute="${hapiProductForm.itemtype}"
+                                                  data-rel="addCartEntryForm">
+                                                <input type="hidden" name="redirect" v-model="product.pagePath"
+                                                       data-sly-attribute="${hapiProductForm.itemprop.redirectPath}"/>
+                                                <input type="hidden" name="redirect-product-not-found" v-model="product.pagePath"
+                                                       data-sly-attribute="${hapiProductForm.itemprop.redirectErrorPath}"/>
+                                                <input type="hidden" name="product-quantity" value="1"
+                                                       data-sly-attribute="${hapiProductForm.itemprop.quantity}"/>
+                                                <input type="hidden" name="product-path" v-model="product.path"
+                                                       data-sly-attribute="${hapiProductForm.itemprop.productPath}"/>
+                                                <input type="hidden" name=":operation" value="addToSmartList"/>
+                                            <div class="we-Product-actions">
+
+
+                                                <button v-on:click="trackCartAdd" data-sly-attribute="${hapiProductForm.itemprop.addToCartButton}" id="addCartButton" type="submit" title="Add to Basket" data-ean="9791032703755" data-id="4325109" class="button max-btn-cart " data-final-price="6.6">
+                                                    <span>Add to Basket</span>
+                                                </button>
+
+                                            </div>
+                                            </form>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="product-shop-stock-items">
+                                        <div class="product-shop-stock" style="">
+                                            <div id="shopStockContainer">
+                                                <span class="product-shop-stock-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">At the store :</font></font></span>
+                                                <table>
+                                                    <tbody><tr>
+                                                        <td valign="middle" id="shop-name"></td>
+                                                        <td valign="middle" id="shop-qty"><div id="shop-real-qty-box" class="shop-qty-text shop-real-qty"></div><div class="circle"></div></td>
+                                                    </tr>
+                                                    </tbody></table>
+                                                <a id="shop-list" class="shop-list" href="#" onclick="toggleProductPopin('popin-product-shop'); return false;" data-bodypanel="has--popin-visible"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">See availability in store</font></font></a>
+
+                                                <div id="proximis-box">
+
+                                                    <div id="proximis-widget" class="proximis proximis-default" style="display: block;">
+                                                        <div data-prx-sku="9791032703755" data-price="6.6" data-final-price="6.6" class="widget widget-add-to-cart prx-loading-done" data-prx-force-template="true" data-prx-automagic="1">
+                                                            <a class="button" href="#" data-prx-do="add-to-cart" onclick="culturaShopStock.setTrackerToEresaButton(); readyElementClick(this);"><i class="icon icon_localisation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Book in store</font></font></a>
+                                                        </div>
+
+                                                    </div>
+
+
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-100p" id="bloc-for-mobile">
+                                    <div class="add-numeric-to-cart">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="product-reinsurance">
+                            <aside>
+                                <div class="product-reassurance-pictos">
+                                    <div class="product-reassurance-picto">
+                                        <i class="icon icon_reservez_en_ligne"></i>
+                                        <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Book Online </font></font></strong>
+                                        <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Remove in store under 1h</font></font></small>
+                                    </div>
+                                    <div class="product-reassurance-picto">
+                                        <i class="icon icon_livraison_gratuite"></i>
+                                        <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                            Free Shipping
+                                        </font></font></strong>
+                                        <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">In all our stores</font></font></small>
+                                    </div>
+                                    <div class="product-reassurance-picto">
+                                        <i class="icon icon_cb_plusieurs"></i>
+                                        <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                            Payment in 3 or 4 times
+                                        </font></font></strong>
+                                        <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">No charge by credit card</font></font></small>
+                                    </div>
+                                    <div class="product-reassurance-picto">
+                                        <i class="icon icon_retours"></i>
+                                        <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                            In-store
+                                        </font></font></strong>
+                                        <small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">returns within 30 days</font></font></small>
+                                    </div>
+                                </div>                                </aside>
+                        </div>
+                    </div>
+
+                    <!-- /main container -->
+                </div></form>
+            </div></article>
+    </div>
+
+
+
+    <!-- Description part -->
+
+
+    <div class="product-collateral desktop-version">
+        <div class="my-container">
+
+            <section id="tab-global-content-description-desktop">
+                <div class="tab-container">
+                    <div class="tab-content tab-content-onepage" id="tab-description-desktop">
+                        <h1 class="tab-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Descriptive                        </font></font></h1>
+                        <div class="tab-content-main">
+                            <div id="description-desktop" class="content-text">
+                                <div class="std" id="product-description-tab">
+                                    <div itemprop="description">
+                                        ${productModel.productItem.description}      </div>
+                                    <div class="breaker"></div>
+                                </div>
+                                <div id="culturebd_video-mobile" class="culturebd_video" style="margin-top: 10px;"></div>
+
+
+
+                            </div>
+                        </div>
+                        <a id="see-more-description" class="see-more-infos" onclick="toggleInfo(this)" style="display: none;">Replier</a>
+                    </div>
+                </div>
+            </section>
+            <section id="tab-global-content-product_review-desktop" style="display: none;">
+                <div class="tab-container">
+                    <div class="tab-content tab-content-onepage" id="tab-product_review-desktop">
+                        <h1 class="tab-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Critical                        </font></font></h1>
+                        <div class="tab-content-main closed">
+                            <div id="product_review-desktop" class="content-text">
+                                <div id="culturebd_review-mobile" class="culturebd_review"></div>
+
+                            </div>
+                        </div>
+                        <a id="see-more-product_review" class="see-more-infos" onclick="toggleInfo(this)"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Unfold everything                        </font></font></a>
+                    </div>
+                </div>
+            </section>
+            <section id="tab-global-content-product_press_review-desktop" style="display: none;">
+                <div class="tab-container">
+                    <div class="tab-content tab-content-onepage" id="tab-product_press_review-desktop">
+                        <h1 class="tab-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Reviews Press                        </font></font></h1>
+                        <div class="tab-content-main closed">
+                            <div id="product_press_review-desktop" class="content-text">
+                                <div id="culturebd_press_review-mobile" class="culturebd_press_review"></div>
+
+                            </div>
+                        </div>
+                        <a id="see-more-product_press_review" class="see-more-infos" onclick="toggleInfo(this)"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Unfold everything                        </font></font></a>
+                    </div>
+                </div>
+            </section>
+            <section id="tab-global-content-additional-desktop">
+                <div class="tab-container">
+                    <div class="tab-content tab-content-onepage" id="tab-additional-desktop">
+                        <h1 class="tab-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            Technical sheet                        </font></font></h1>
+                        <div class="tab-content-main closed">
+                            <div id="additional-desktop" class="content-text">
+                                <table class="technical-details" id="product-attribute-specs-table">
+                                    <colgroup><col width="25%">
+                                        <col>
+                                    </colgroup><tbody>
+                                <tr>
+                                    <th>Title: </th>
+                                    <td class="data product-title"><h2>${productModel.productItem.title}</h2></td>
+                                </tr>
+                                <tr>
+                                    <th>Author: </th>
+                                    <td class="data"><h2>${productModel.productItem.attributeMap.translator}</h2></td>
+                                </tr>
+                                <tr>
+                                    <th>SKU: </span></th>
+                                    <td class="data"><h2>${productModel.productItem.sku}</h2></td>
+                                </tr>
+                                <tr>
+                                    <th >Release Date: </th>
+                                    <td class="data"><h2>${productModel.productItem.attributeMap.specs}</h2></td>
+                                </tr>
+                                <tr>
+                                    <th> Product Brand</th>
+                                    <td class="data" itemprop="datePublished" content="">${productModel.productItem.attributeMap.product_brand}</td>
+                                </tr>
+
+                                </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="reference visible-only-phone">
+                <p class="product-ids">
+                    REF: 9791032703755                </font></font></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- -->
+    <we-product-variant
+            data-sly-repeat.productItem="${productModel.variants}"
+            is-base="${productItemList.first ? 1 : 0}"
+            path="${productItem.path}"
+            page-path="${productItem.pagePath}"
+            variants="${productItem.variants}"
+            sku="${productItem.sku}"
+            title="${productItem.title}"
+            description="${productItem.description}"
+            price="${productItem.price}"
+            summary="${productItem.summary}"
+            features="${productItem.features}"
+            image="${productItem.imageUrl}"
+            thumbnail="${productItem.thumbnailUrl}"
+            variant-axes="${productItem.variantAxesMapJson}"></we-product-variant>
+
+<div style="height:200px">
+</div>
+
+</div>
