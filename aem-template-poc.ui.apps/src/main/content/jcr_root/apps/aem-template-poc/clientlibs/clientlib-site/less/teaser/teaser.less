@@ -1,0 +1,81 @@
+@import "/apps/aem-template/clientlibs/clientlib-site/less/variables.less";
+
+.cmp-teaser {
+    position: relative;
+    min-height: 40px;
+	background: 50% no-repeat;
+    background-size: cover;
+    color: @main-color-text;
+
+    .cmp-teaser__content {
+        text-align: center;
+        background-color: @main-color-background;
+
+        .cmp-teaser__title {
+    		width: 100%;
+        	font-size: 30px;
+			front-weight: 900;
+            text-align: center;
+            padding-top: 10px;
+			padding-bottom: 5px;
+
+            .cmp-teaser__title-link {
+                text-decoration: none;
+                color: inherit;
+            }
+		}
+
+        .cmp-teaser__description {
+            width: 100%;
+            margin-top: -10px;
+            margin-bottom: -10px;
+        	font-size: 15px;
+            text-align: center;
+        }
+
+        .btn-action {
+            width: fit-content;
+			text-align: center;
+            padding-bottom: 5px;
+            width: 100%;
+            margin: 0 auto;
+
+        	.cmp-teaser__action-container {
+   	 			border-style: solid;
+    			border-width: @border-size;
+				width: fit-content;
+            	text-align: center;
+            	margin: 0 auto;
+
+            	.cmp-teaser__action-link {
+                    font-weight: 700;
+                    font-size: .9rem;
+                    line-height: 1.5;
+                    letter-spacing: 0.1em;
+                	padding: 5px;
+                	text-align: center;
+                	text-decoration: none;
+                	color: inherit;
+                	text-transform: uppercase;
+            	}
+        	}
+      	}
+
+        @media (max-width: 650px){
+
+      		.cmp-teaser__description {
+    			display: none;
+        	}
+	    	.cmp-teaser__title {
+        		font-size: 25px;
+                .cmp-teaser__title-link {
+                	font-size: 25px;
+                }
+			}
+		}
+    }
+}
+
+
+
+

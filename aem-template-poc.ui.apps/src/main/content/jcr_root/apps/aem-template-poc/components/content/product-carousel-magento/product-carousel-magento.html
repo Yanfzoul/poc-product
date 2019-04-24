@@ -1,0 +1,46 @@
+<div data-sly-use.products="com.adobe.poc.core.ProductCategorySlider"
+	data-sly-unwrap>
+	<div class="owl-carousel owl-theme product-slider product-carousel">
+		<!-- product-->
+		<div data-sly-repeat="${products.products}"
+			class="product-slider-item">
+			<div class="product">
+				<div data-sly-repeat="${item.customAttributes}" data-sly-unwrap>
+					<div data-sly-test="${item.attributeCode == 'image'}"
+						data-sly-unwrap>
+						<div class="product-image">
+							<!-- <div class="ribbon ribbon-primary">Promo</div> -->
+							<img src="${item.value}" alt="product" class="img-fluid" />
+							<div class="product-hover-overlay">
+								<a href="#" class="product-hover-overlay-link"></a>
+								<div class="product-hover-overlay-buttons">
+									<a href="#" class="btn btn-dark btn-buy"> <i
+										class="fa-search fa"></i><span class="btn-buy-label ml-2">Aperçu</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-detail">
+					<p class="content-text-title">
+						<a href="#" class="text-title-link">${item.name}</a>
+					</p>
+					<div
+						data-sly-test="${item.extensionAttributes.stockItem.isInStock == true}"
+						data-sly-unwrap>
+						<p class="content-text-stock">En Stock</p>
+					</div>
+					<div
+						data-sly-test="${item.extensionAttributes.stockItem.isInStock == false}"
+						data-sly-unwrap>
+						<p class="content-text-stock">Rupture de Stock</p>
+					</div>
+					<p class="content-text-price">${item.price} &#8364;</p>
+					<a class="btn" href="#" role="button">Ajouter au panier</a>
+				</div>
+			</div>
+		</div>
+		<!-- /product classe pour l'auteur : content-text-info -->
+	</div>
+</div>

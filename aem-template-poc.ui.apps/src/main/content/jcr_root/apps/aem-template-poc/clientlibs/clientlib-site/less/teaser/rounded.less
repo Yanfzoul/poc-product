@@ -1,0 +1,29 @@
+@import "/apps/aem-template/clientlibs/clientlib-site/less/variables.less";
+
+.teaser-rounded {
+	.cmp-teaser {
+    	.cmp-teaser__image {
+            img {
+				border-radius: @angle-rounded-image @angle-rounded-image 0px 0px;
+        	}
+		}
+
+    	.cmp-teaser__content {
+            border-radius: 0px 0px @angle-rounded-image @angle-rounded-image;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        	.cmp-teaser__title {
+                border-radius: inherit;
+
+            	.cmp-teaser__title-link {
+                	text-decoration: none;
+                    color: inherit;
+            	}
+			}
+
+        	.cmp-teaser__description {
+                border-radius: inherit;
+        	}
+    	}
+	}
+}

@@ -1,0 +1,60 @@
+@import "/apps/aem-template/clientlibs/clientlib-site/less/variables.less";
+
+.product {
+    background-color: @product-color-background;
+    text-align: center;
+    height: 100%;
+    padding: 10px;
+
+    .product-image {
+        &:hover {
+          	border-bottom: @border-size solid @product-color-text;
+        }
+   	}
+
+   	.content-detail {
+       	text-decoration: none;
+        padding: 5px 5px 0px 5px;
+
+		.content-text-title {
+			overflow: hidden;
+   			text-overflow: ellipsis;
+   			display: -webkit-box;
+   			-webkit-line-clamp: 2;
+   			-webkit-box-orient: vertical;
+
+            .text-title-link {
+				text-decoration: none;
+                color: @product-color-text;
+                font-weight: 900;
+                font-size: 18px;
+
+                &:hover {
+                	text-decoration: underline;
+                }
+            }
+        }
+
+        .content-text-info {
+    	     color: @product-color-text;
+             font-weight: 700;
+             font-size: 14px;
+       	}
+
+        .content-text-price {
+        	color: @product-color-text;
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+       	.btn {
+       		border: solid @border-size #444;
+        	margin-bottom: 10px;
+
+           	&:hover {
+				color: @product-color-background;
+                background-color: @product-color-text;
+            }
+       	}
+    }
+}
