@@ -8,6 +8,7 @@ import org.junit.Test;
 import com.adobe.poc.core.ProductManager;
 import com.adobe.poc.core.model.category.Category;
 import com.adobe.poc.core.model.category.all.AllCateg;
+import com.adobe.poc.core.model.simpleproduct.SearchResult;
 import com.adobe.poc.core.model.simpleproduct.SimpleProduct;
 
 // PROXY CGI -Dhttp.proxyHost=10.83.124.3 -Dhttp.proxyPort=3128
@@ -67,6 +68,20 @@ public class NetClientGetTest {
 	public void getSimpleProductFromSkuTest() {
 		final SimpleProduct result = ProductManager.getSimpleProductFromSku("product_dynamic_681");
 		System.out.println(result);
+		Assert.assertNotNull("test fail", result);
+	}
+	
+	@Test
+	public void searchProductFromCateg() {
+		final SearchResult result = ProductManager.searchProduct("3", null, 10);
+		System.out.println("result.getItems().size() : " + result.getItems().size());
+		Assert.assertNotNull("test fail", result);
+	}
+	
+	@Test
+	public void searchProduct() {
+		final SearchResult result = ProductManager.searchProduct(null, "product_dynamic_51", null);
+		System.out.println("result.getItems().size() : " + result.getItems().size());
 		Assert.assertNotNull("test fail", result);
 	}
 

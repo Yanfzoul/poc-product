@@ -17,6 +17,7 @@ import com.adobe.poc.core.model.category.ProductCategory;
 import com.adobe.poc.core.model.category.all.AllCateg;
 import com.adobe.poc.core.model.simpleproduct.CustomAttribute;
 import com.adobe.poc.core.model.simpleproduct.MediaGalleryEntry;
+import com.adobe.poc.core.model.simpleproduct.SearchResult;
 import com.adobe.poc.core.model.simpleproduct.SimpleProduct;
 
 /**
@@ -38,6 +39,9 @@ public class ProductManager {
 	
 	/** The Constant URL_PRODUCT. */
 	public static final String URL_PRODUCT = "/rest/V1/products/";
+	
+	/** The Constant URL_PRODUCT. */
+	public static final String URL_PRODUCT_SEARCH = "/rest/V1/products?";
 	
 	/** The Constant URL_CATEGORY. */
 	public static final String URL_CATEGORY = "/rest/V1/categories/";
@@ -65,7 +69,37 @@ public class ProductManager {
 	
 	/** The Constant URL_BASE_IMAGE. */
 	public static final String URL_BASE_IMAGE = "http://ec2-35-181-68-229.eu-west-3.compute.amazonaws.com/pub/media/catalog/product";
-
+	
+	public static final String PARAM_AND = "&";
+	
+	public static final String PARAM_SEARCH_CRITERIA = "searchCriteria";
+	
+	public static final String PARAM_PAGE_SIZE = "searchCriteria[pageSize]=";
+	
+	public static final String PARAM_SEARCH_FILTERS = "filters";
+	
+	public static final String PARAM_SEARCH_GROUP = "filter_groups";
+	
+	public static final String PARAM_CATEGORY_ID = "category_id";
+	
+	public static final String PARAM_SKU = "sku";
+	
+	public static final String PARAM_FIELD = "field";
+	
+	public static final String PARAM_VALUE = "value";
+	
+	public static final String PARAM_CONDITION_TYPE = "condition_type";
+	
+	public static final String PARAM_CONDITION_EQ = "eq";
+	
+	public static final String PARAM_CONDITION_LIKE = "like";
+	
+	public static final String PARAM_BRACKET_OPEN = "[";
+	
+	public static final String PARAM_BRACKET_CLOSE = "]";
+	
+	public static final String PARAM_EQUAL = "=";
+	
 	/**
 	 * Gets the configurable product.
 	 *
@@ -401,6 +435,81 @@ public class ProductManager {
 			}
 		}
 		
+	}
+	
+	/**
+	 * Search product.
+	 *
+	 * @param categoryId the category id
+	 * @param productId the product id
+	 * @return the list
+	 */
+	public static SearchResult searchProduct(final String categoryId, final String productId, final Integer pageSize) {
+		String reponseCusto = null;
+		SearchResult searchResult = null;
+		final StringBuilder requestUrl = new StringBuilder();
+		requestUrl.append(URL_GENERAL);
+		requestUrl.append(URL_PRODUCT_SEARCH);
+		if (StringUtils.isNotBlank(categoryId)) { 
+			requestUrl.append(generateSearchParam(PARAM_FIELD, PARAM_CATEGORY_ID, 0, 0));
+			requestUrl.append(PARAM_AND);
+			requestUrl.append(generateSearchParam(PARAM_VALUE, categoryId, 0, 0));
+			requestUrl.append(PARAM_AND);
+			requestUrl.append(generateSearchParam(PARAM_CONDITION_TYPE, PARAM_CONDITION_EQ, 0, 0));
+			requestUrl.append(PARAM_AND);
+		}
+		if ( StringUtils.isNotBlank(productId)) {
+			requestUrl.append(generateSearchParam(PARAM_FIELD, PARAM_SKU, 0, 0));
+			requestUrl.append(PARAM_AND);
+			requestUrl.append(generateSearchParam(PARAM_VALUE, productId, 0, 0));
+			requestUrl.append(PARAM_AND);
+			requestUrl.append(generateSearchParam(PARAM_CONDITION_TYPE, PARAM_CONDITION_EQ, 0, 0));
+		}
+		if (null != pageSize) {
+			requestUrl.append(PARAM_AND);
+			requestUrl.append(PARAM_PAGE_SIZE);
+			requestUrl.append(pageSize.intValue());
+		}
+		reponseCusto = NetClientGet.callServiceByGetCached(requestUrl.toString(), NetClientGet.TOKEN);
+		if (StringUtils.isNotBlank(reponseCusto)) {
+			searchResult = JsonConverterUtils.convertJsonStringToObject(reponseCusto, SearchResult.class);
+		}
+		
+		return searchResult;
+	}
+	
+	/**
+	 * Generate search param.
+	 *	ex : searchCriteria[filter_groups][<index>][filters][<index>][field]=<field_name>
+	 * @param type the type
+	 * @param value the value
+	 * @param condition the condition
+	 * @param counterGroup the counter group
+	 * @param counterFilter the counter filter
+	 * @return the string
+	 */
+	private static String generateSearchParam (final String type, final String value, int counterGroup, int counterFilter) {
+		final StringBuilder searchParam = new StringBuilder();
+		searchParam.append(PARAM_SEARCH_CRITERIA);// searchCriteria
+		searchParam.append(PARAM_BRACKET_OPEN); // [
+		searchParam.append(PARAM_SEARCH_GROUP); // filter_groups
+		searchParam.append(PARAM_BRACKET_CLOSE); // ]
+		searchParam.append(PARAM_BRACKET_OPEN); // [
+		searchParam.append(counterGroup);
+		searchParam.append(PARAM_BRACKET_CLOSE); // ]
+		searchParam.append(PARAM_BRACKET_OPEN); // [
+		searchParam.append(PARAM_SEARCH_FILTERS); // filters
+		searchParam.append(PARAM_BRACKET_CLOSE); // ]
+		searchParam.append(PARAM_BRACKET_OPEN); // [
+		searchParam.append(counterFilter);
+		searchParam.append(PARAM_BRACKET_CLOSE); // ]
+		searchParam.append(PARAM_BRACKET_OPEN); // [
+		searchParam.append(type);
+		searchParam.append(PARAM_BRACKET_CLOSE); // ]
+		searchParam.append(PARAM_EQUAL); // =
+		searchParam.append(value);
+		
+		return searchParam.toString();
 	}
 	
 }

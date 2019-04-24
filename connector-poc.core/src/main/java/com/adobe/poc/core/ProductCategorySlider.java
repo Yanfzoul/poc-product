@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUsePojo;
+import com.adobe.poc.core.model.simpleproduct.SearchResult;
 import com.adobe.poc.core.model.simpleproduct.SimpleProduct;
 
 public class ProductCategorySlider extends WCMUsePojo {
@@ -32,7 +33,11 @@ public class ProductCategorySlider extends WCMUsePojo {
         if (StringUtils.isNotBlank(nbMaxProduct)) {
         	nbMaxProducts = Integer.valueOf(nbMaxProduct);
         }
-        products = ProductManager.getProductsInCategoryFromId(categoryId, nbMaxProducts);
+        SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts);
+        
+        if (null != result) {
+        	products = result.getItems();
+        }
         
     }
     

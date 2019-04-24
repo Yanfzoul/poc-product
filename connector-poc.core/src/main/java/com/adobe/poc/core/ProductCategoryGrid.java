@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUsePojo;
+import com.adobe.poc.core.model.simpleproduct.SearchResult;
 import com.adobe.poc.core.model.simpleproduct.SimpleProduct;
 
 public class ProductCategoryGrid extends WCMUsePojo {
@@ -35,7 +36,11 @@ public class ProductCategoryGrid extends WCMUsePojo {
         if (StringUtils.isNoneBlank(pageSelector)) {
         	page = Integer.valueOf(pageSelector);
         }
-        products = ProductManager.getProductsInCategoryFromIdWithPage(categoryId, nbMaxProducts, page);
+        SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts);
+        
+        if (null != result) {
+        	products = result.getItems();
+        }
         
     }
     
