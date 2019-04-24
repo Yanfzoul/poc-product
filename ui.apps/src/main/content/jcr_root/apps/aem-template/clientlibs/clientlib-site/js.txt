@@ -17,4 +17,3 @@
 
 
 js/search.js
-js/product-carousel.js

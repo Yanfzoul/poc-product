@@ -1,0 +1,33 @@
+<div class="product-detail">
+    <div data-sly-use.detail="product-detail.js" data-sly-unwrap>
+    	<div class="product-info-section">
+    		<div class="product-title">${detail.title}</div>
+            <div><a href="#">Soyer le premier à commenter ce produit</a></div>
+        	<div class="product-description">${detail.description}</div>
+        	<div class="product-price">€<span id="product-price"></span>.00</div>
+       	<div>
+        <div class="separator"></div>
+        <div class="product-config-section">
+        	<div>Choisir le montant de la carte</div>
+        	<input type="range" min="1" max="150" value="1" class="slider" id="price-slider"/>
+            <div>Qté</div>
+            <input type="text" value="1" id="quantity" maxlength="2" size="2"/>
+            <div><a class="btn" href="#" role="button">Ajouter au panier</a></div>
+        </div>
+        <div class="product-community-section">
+        	<div><i class="fas fa-heart fa-sm"></i> AJOUTER À MA LISTE D'ENVIE</div>
+            <div><i class="fas fa-chart-bar fa-sm"></i> AJOUTER AU COMPARATEUR</div>
+            <div><i class="fas fa-envelope fa-sm"></i> EMAIL</div>
+        </div>
+    </div>
+
+    <script>
+		var slider = document.getElementById("price-slider");
+		var output = document.getElementById("product-price");
+		output.innerHTML = slider.value;
+
+		slider.oninput = function() {
+  			output.innerHTML = this.value;
+		}
+	</script>
+</div>

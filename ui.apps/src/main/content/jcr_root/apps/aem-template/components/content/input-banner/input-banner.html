@@ -1,0 +1,32 @@
+<meta data-sly-use.clientlib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-unwrap/>
+
+<div data-sly-use.banner="input-banner.js" data-sly-unwrap>
+    <div data-sly-test="${properties.background == 'image'}" data-sly-unwrap>
+        <!--/* Display Image or placeholder if set*/-->
+        <div class="background-${properties.background} ${properties.class} ${properties.fullHeight} text-${properties.mainColorClass}"  style="${banner.styles @ context='styleString'}">
+			<div class="input-banner">
+            	<div class="banner-title">${banner.title}</div>
+                <span class="banner-input"><input type="text" placeholder="${banner.placeholder}"/></span>
+                <span><a class="btn btn-go" href="#" role="button">OK</a></span>
+                <div><a class="btn-close" href="#" role="button"><i class="far fa-times-circle fa-2x"></i></a></div>
+            </div>
+        </div>
+    </div>
+
+    <div data-sly-test="${properties.background == 'color'}" data-sly-unwrap>
+        <!--/* Display solid color */-->
+        <div class="background-${properties.background} ${properties.class} bg-${properties.backgroundColorClass} text-${properties.mainColorClass} ${properties.fullHeight}"
+             style="${banner.styles @ context='text'}">
+			<div class="input-banner">
+            	<div class="banner-title">${banner.title}</div>
+                <span class="banner-input"><input type="text" placeholder="${banner.placeholder}"/></span>
+                <span><a class="btn btn-go" href="#" role="button">OK</a></span>
+                <div><a class="btn-close" href="#" role="button"><i class="far fa-times-circle fa-2x"></i></a></div>
+            </div>
+        </div>
+    </div>
+
+	<script>
+
+	</script>
+</div>

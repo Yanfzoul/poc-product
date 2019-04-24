@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Input banner"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            margin="{Boolean}false"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <background
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Background"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <background
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="gss-commons/components/dialog/select"
+                                class="cq-dialog-dropdown-tab-showhide"
+                                cq-dialog-dropdown-tab-showhide-target=".list-option-tab-showhide-target"
+                                fieldLabel="Data source"
+                                name="./background">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <color
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Color"
+                                        value="color"/>
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Image"
+                                        value="image"/>
+                                </items>
+                            </background>
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title"
+                                name="./title"/>
+                            <placeholder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Placeholder"
+                                name="./placeholder"/>
+                        </items>
+                    </column>
+                </items>
+            </background>
+            <image
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Image"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldLabel="Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./imageUrl"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <backgroundSize
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="Background size"
+                                name="./backgroundSize">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <initial
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="initial"/>
+                                    <cover
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Fit horizontally"
+                                        value="cover"/>
+                                    <contain
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Fit vertically"
+                                        value="contain"/>
+                                </items>
+                            </backgroundSize>
+                            <backgroundPosition
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="Background position"
+                                name="./backgroundPosition">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <top-left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Top-left"
+                                        value="0% 0%"/>
+                                    <top-center
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Top-center"
+                                        value="50% 0%"/>
+                                    <top-right
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Top-right"
+                                        value="100% 0%"/>
+                                    <middle-left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Middle-left"
+                                        value="0% 50%"/>
+                                    <middle-center
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Middle-center"
+                                        value="50% 50%"/>
+                                    <middle-right
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Middle-right"
+                                        value="100% 50%"/>
+                                    <bottom-left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Bottom-left"
+                                        value="0% 100%"/>
+                                    <bottom-center
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Bottom-center"
+                                        value="50% 100%"/>
+                                    <bottom-right
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Bottom-right"
+                                        value="100% 100%"/>
+                                    <do-not-repeat
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Do-Not-Repeat"
+                                        value="center"/>
+                                </items>
+                            </backgroundPosition>
+                        </items>
+                    </column>
+                </items>
+                <layoutConfig
+                    jcr:primaryType="nt:unstructured"
+                    class="hide list-option-tab-showhide-target image"/>
+            </image>
+            <styles
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Styles"
+                sling:resourceType="granite/ui/components/coral/foundation/include"
+                path="/apps/gss-commons/components/dialog/styles"/>
+        </items>
+    </content>
+</jcr:root>
