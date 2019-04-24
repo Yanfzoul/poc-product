@@ -73,14 +73,14 @@ public class NetClientGetTest {
 	
 	@Test
 	public void searchProductFromCateg() {
-		final SearchResult result = ProductManager.searchProduct("3", null, 10);
+		final SearchResult result = ProductManager.searchProduct("3", null, 10, null);
 		System.out.println("result.getItems().size() : " + result.getItems().size());
 		Assert.assertNotNull("test fail", result);
 	}
 	
 	@Test
 	public void searchProduct() {
-		final SearchResult result = ProductManager.searchProduct(null, "product_dynamic_51", null);
+		final SearchResult result = ProductManager.searchProduct(null, "product_dynamic_51", null, null);
 		System.out.println("result.getItems().size() : " + result.getItems().size());
 		Assert.assertNotNull("test fail", result);
 	}

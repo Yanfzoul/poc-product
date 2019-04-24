@@ -88,6 +88,8 @@ public class ProductManager {
 	
 	public static final String PARAM_VALUE = "value";
 	
+	public static final String PARAM_NAME = "name";
+	
 	public static final String PARAM_CONDITION_TYPE = "condition_type";
 	
 	public static final String PARAM_CONDITION_EQ = "eq";
@@ -99,6 +101,8 @@ public class ProductManager {
 	public static final String PARAM_BRACKET_CLOSE = "]";
 	
 	public static final String PARAM_EQUAL = "=";
+	
+	public static final String PARAM_NAME_SEPARATOR = "%25";
 	
 	/**
 	 * Gets the configurable product.
@@ -444,7 +448,7 @@ public class ProductManager {
 	 * @param productId the product id
 	 * @return the list
 	 */
-	public static SearchResult searchProduct(final String categoryId, final String productId, final Integer pageSize) {
+	public static SearchResult searchProduct(final String categoryId, final String productId, final Integer pageSize, final String name) {
 		String reponseCusto = null;
 		SearchResult searchResult = null;
 		final StringBuilder requestUrl = new StringBuilder();
@@ -464,6 +468,14 @@ public class ProductManager {
 			requestUrl.append(generateSearchParam(PARAM_VALUE, productId, 0, 0));
 			requestUrl.append(PARAM_AND);
 			requestUrl.append(generateSearchParam(PARAM_CONDITION_TYPE, PARAM_CONDITION_EQ, 0, 0));
+		}
+		if (StringUtils.isNotBlank(name)) { 
+			requestUrl.append(generateSearchParam(PARAM_FIELD, PARAM_NAME, 0, 0));
+			requestUrl.append(PARAM_AND);
+			requestUrl.append(generateSearchParam(PARAM_VALUE, PARAM_NAME_SEPARATOR + name + PARAM_NAME_SEPARATOR, 0, 0));
+			requestUrl.append(PARAM_AND);
+			requestUrl.append(generateSearchParam(PARAM_CONDITION_TYPE, PARAM_CONDITION_LIKE, 0, 0));
+			requestUrl.append(PARAM_AND);
 		}
 		if (null != pageSize) {
 			requestUrl.append(PARAM_AND);

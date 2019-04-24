@@ -33,7 +33,7 @@ public class ProductCategorySlider extends WCMUsePojo {
         if (StringUtils.isNotBlank(nbMaxProduct)) {
         	nbMaxProducts = Integer.valueOf(nbMaxProduct);
         }
-        SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts);
+        SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts, null);
         
         if (null != result) {
         	products = result.getItems();

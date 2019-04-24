@@ -36,7 +36,7 @@ public class ProductCategoryGrid extends WCMUsePojo {
         if (StringUtils.isNoneBlank(pageSelector)) {
         	page = Integer.valueOf(pageSelector);
         }
-        SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts);
+        SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts, null);
         
         if (null != result) {
         	products = result.getItems();
