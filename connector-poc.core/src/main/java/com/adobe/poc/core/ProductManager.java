@@ -485,6 +485,16 @@ public class ProductManager {
 		reponseCusto = NetClientGet.callServiceByGetCached(requestUrl.toString(), NetClientGet.TOKEN);
 		if (StringUtils.isNotBlank(reponseCusto)) {
 			searchResult = JsonConverterUtils.convertJsonStringToObject(reponseCusto, SearchResult.class);
+			for (SimpleProduct simpleProduct : searchResult.getItems()) {
+				if (null != simpleProduct && null != simpleProduct.getMediaGalleryEntries()) {
+					for (MediaGalleryEntry mediaEntry : simpleProduct.getMediaGalleryEntries()) {
+						updateImageUrlForMediaEntry(mediaEntry);
+					}
+				}
+				for (CustomAttribute customAttr : simpleProduct.getCustomAttributes()) {
+					updateImageUrlCustomAttribute(customAttr);
+				}
+			}
 		}
 		
 		return searchResult;
