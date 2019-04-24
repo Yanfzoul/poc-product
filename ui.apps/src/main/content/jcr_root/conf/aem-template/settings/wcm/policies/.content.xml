@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <dam jcr:primaryType="nt:unstructured">
+        <cfm jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <contentfragment jcr:primaryType="nt:unstructured">
+                    <policy_1554218810818
+                        jcr:lastModified="{Date}2019-04-02T17:27:17.047+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Content Policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1554218810818>
+                </contentfragment>
+            </components>
+        </cfm>
+        <components jcr:primaryType="nt:unstructured">
+            <scene7 jcr:primaryType="nt:unstructured">
+                <dynamicmedia jcr:primaryType="nt:unstructured"/>
+            </scene7>
+        </components>
+    </dam>
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                    <content-default
+                        jcr:description="Policy for editable layout containers"
+                        jcr:lastModified="{Date}2019-04-02T17:28:12.222+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:Editorial,group:Structure]"
+                        policyResourceType="wcm/foundation/components/responsivegrid">
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <image
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="aem-template/components/content/image"
+                                    type="Images"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </content-default>
+                    <policy_275284763161607
+                        jcr:lastModified="{Date}2019-04-17T16:14:57.141+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Teamplate Content Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/dam/components/scene7/dynamicmedia,/libs/dam/components/scene7/interactivemedia,group:Editorial]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_275284763161607>
+                    <policy_436826808892861
+                        jcr:lastModified="{Date}2019-04-09T15:56:19.945+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Exp Frag Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="group:Editorial">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_436826808892861>
+                </responsivegrid>
+            </components>
+        </foundation>
+    </wcm>
+    <aem-template jcr:primaryType="nt:unstructured">
+        <components jcr:primaryType="nt:unstructured">
+            <form jcr:primaryType="nt:unstructured">
+                <container jcr:primaryType="nt:unstructured">
+                    <form-container
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Form"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/aem-template/components/form/button,/apps/aem-template/components/form/hidden,/apps/aem-template/components/form/options,/apps/aem-template/components/form/text]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </form-container>
+                </container>
+            </form>
+            <structure jcr:primaryType="nt:unstructured">
+                <footer jcr:primaryType="nt:unstructured"/>
+            </structure>
+            <content jcr:primaryType="nt:unstructured">
+                <contentContainer jcr:primaryType="nt:unstructured"/>
+                <teaser jcr:primaryType="nt:unstructured">
+                    <policy_1554303872201
+                        jcr:lastModified="{Date}2019-04-17T10:08:27.643+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Teaser Policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Style"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="teaser-rounded"
+                                        cq:styleId="1554303881615"
+                                        cq:styleLabel="Rounded"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="teaser-full-image"
+                                        cq:styleId="1554303891685"
+                                        cq:styleLabel="Full Image"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1554303872201>
+                </teaser>
+                <button jcr:primaryType="nt:unstructured">
+                    <policy_1554377704242
+                        jcr:lastModified="{Date}2019-04-17T10:08:35.001+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Button Policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Style"
+                                cq:styleGroupMultiple="true"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="button-rounded"
+                                        cq:styleId="1554377713907"
+                                        cq:styleLabel="Rounded"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="button-border"
+                                        cq:styleId="1554733314216"
+                                        cq:styleLabel="Border"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1554377704242>
+                </button>
+                <text jcr:primaryType="nt:unstructured"/>
+                <carousel_x0020_core jcr:primaryType="nt:unstructured">
+                    <policy_1554385161433
+                        jcr:lastModified="{Date}2019-04-04T17:07:36.315+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Carousel Core Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        autopauseDisabled="false"
+                        autoplay="false"
+                        components="[group:Editorial]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1554385161433>
+                </carousel_x0020_core>
+                <content-container jcr:primaryType="nt:unstructured"/>
+                <carousel jcr:primaryType="nt:unstructured"/>
+                <title jcr:primaryType="nt:unstructured">
+                    <policy_1555577742901
+                        cq:styleDefaultClasses="title-search"
+                        jcr:lastModified="{Date}2019-04-18T10:56:19.998+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM Template Search Title Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedTypes="[h1,h2,h3,h4,h5,h6]"
+                        linkDisabled="false"
+                        type="h1">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1555577742901>
+                </title>
+            </content>
+        </components>
+    </aem-template>
+    <policy_1554210248470
+        jcr:lastModified="{Date}2019-04-02T15:04:42.156+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Test Policy"
+        sling:resourceType="wcm/core/components/policy/policy"
+        allowUpload="true"
+        altValueFromDAM="false"
+        disableLazyLoading="true"
+        displayPopupTitle="false"
+        isDecorative="false"
+        jpegQuality="{Long}100"
+        titleValueFromDAM="false"
+        uuidDisabled="false">
+        <jcr:content jcr:primaryType="nt:unstructured"/>
+        <plugins jcr:primaryType="nt:unstructured">
+            <crop
+                jcr:primaryType="nt:unstructured"
+                features="-">
+                <aspectRatios jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        name="Wide Landscape"
+                        ratio="0.6180"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        name="Landscape"
+                        ratio="0.8284"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        name="Square"
+                        ratio="1"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        name="Portrait"
+                        ratio="1.6180"/>
+                </aspectRatios>
+            </crop>
+            <rotate
+                jcr:primaryType="nt:unstructured"
+                features="right"/>
+            <flip
+                jcr:primaryType="nt:unstructured"
+                features="-"/>
+        </plugins>
+    </policy_1554210248470>
+    <rep:policy/>
+</jcr:root>

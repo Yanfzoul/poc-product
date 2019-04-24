@@ -1,0 +1,10 @@
+<meta data-sly-use.clientlib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-unwrap/>
+
+<div data-sly-use.insta="insta-feed.js" data-sly-unwrap>
+	<div class="instagram row" data-hashtag="${insta.hashtag}" data-limit="${insta.limit}"
+		 style="${insta.style @ context='styleString'}" ></div>
+	<script src="/apps/aem-template/components/content/insta-feed/lib.js"></script>
+	<script>
+  		$(".instagram").hashtaghistory();
+	</script>
+</div>

@@ -1,4 +1,0 @@
-#base=js
-
-bind.js
-validations.js

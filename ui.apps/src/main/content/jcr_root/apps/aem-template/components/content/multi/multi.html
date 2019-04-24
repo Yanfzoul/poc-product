@@ -1,0 +1,42 @@
+<meta data-sly-use.clientlib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-unwrap/>
+
+<div class="aem-Grid aem-Grid--12">
+    <div data-sly-use.multi="multi.js" data-sly-unwrap>
+        <div data-sly-test="${multi.sectionNumber >= 1 }" data-sly-unwrap>
+            <div class="aem-GridColumn aem-GridColumn--default--${multi.sectionWidth}">
+                <div class="overlay"></div>
+                <div data-sly-resource="${@path='par', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+            </div>
+        </div>
+        <div data-sly-test="${multi.sectionNumber >= 2}" data-sly-unwrap>
+            <div class="aem-GridColumn aem-GridColumn--default--${multi.sectionWidth}">
+                <div class="overlay"></div>
+                <div data-sly-resource="${@path='par1', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+            </div>
+        </div>
+        <div data-sly-test="${multi.sectionNumber >= 3}" data-sly-unwrap>
+            <div class="aem-GridColumn aem-GridColumn--default--${multi.sectionWidth}">
+                <div class="overlay"></div>
+                <div data-sly-resource="${@path='par2', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+            </div>
+        </div>
+        <div data-sly-test="${multi.sectionNumber >= 4}" data-sly-unwrap>
+            <div class="aem-GridColumn aem-GridColumn--default--${multi.sectionWidth}">
+                <div class="overlay"></div>
+                <div data-sly-resource="${@path='par3', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+            </div>
+        </div>
+        <div data-sly-test="${multi.sectionNumber >= 6}" data-sly-unwrap>
+            <div class="aem-GridColumn aem-GridColumn--default--${multi.sectionWidth}">
+                <div class="overlay"></div>
+                <div data-sly-resource="${@path='par4', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+            </div>
+        </div>
+        <div data-sly-test="${multi.sectionNumber >= 6}" data-sly-unwrap>
+            <div class="aem-GridColumn aem-GridColumn--default--${multi.sectionWidth}">
+                <div class="overlay"></div>
+                <div data-sly-resource="${@path='par5', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<workspaceFilter version="1.0">
-    <filter root="/apps/aem-template-poc"/>
-    <filter root="/apps/sling" />
-    <filter root="/conf/aem-template-poc" />
-    <filter root="/content/dam/aem-template-poc" mode="merge"/>
-</workspaceFilter>

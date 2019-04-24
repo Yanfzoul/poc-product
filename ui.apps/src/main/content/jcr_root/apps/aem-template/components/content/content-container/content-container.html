@@ -1,0 +1,62 @@
+<meta data-sly-use.clientlib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-unwrap/>
+<clientlib data-sly-call="${clientLib.all @ categories='gss-commons.components.content-container-v2'}" data-sly-unwrap/>
+
+<div data-sly-use.contentContainer="content-container.js" data-sly-unwrap>
+
+    <div data-sly-test="${properties.background == 'video'}" data-sly-unwrap>
+        <!--/* Check availability of video */-->
+        <div class="background-${properties.background} text-${properties.mainColorClass} ${properties.class} ${properties.fullHeight}">
+
+            <!--/* play youtube video if available*/-->
+            <div data-sly-test.youtube="${contentContainer.youTubeVideo}" data-sly-unwrap>
+                <div class="video-background">
+                    <div class="video-foreground">
+                        <iframe  src="${contentContainer.videoEmbedURL}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div data-sly-test="${!youtube}" data-sly-unwrap>
+                <video autoplay loop data-sly-test="${!youtube}" style="width:100%; height:100%;" preload="auto" poster="${properties.postUrl}">
+                    <source src="${contentContainer.backgroundVideo}" type='video/mp4' />
+                    <source src="${contentContainer.backgroundVideo}" type='video/webm' />
+                    <source src="${contentContainer.backgroundVideo}" type='video/ogg' />
+                </video>
+            </div>
+
+            <div class="overlay ${properties.overlayType} ${properties.overlaySize}"></div>
+            <div class="video-content" style="${contentContainer.styles @ context='styleString'}">
+                <div class="video-text">
+                    <div data-sly-resource="${@path='par', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-sly-test="${properties.background == 'image'}" data-sly-unwrap>
+        <!--/* Display Image or placeholder if set*/-->
+        <div class="background-${properties.background} ${properties.class} ${properties.fullHeight} text-${properties.mainColorClass}"  style="${contentContainer.styles @ context='styleString'}">
+            <div class="overlay ${properties.overlayType} ${properties.overlaySize}"></div>
+                <div data-sly-resource="${@path='par', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+        </div>
+    </div>
+
+    <div data-sly-test="${properties.background == 'color'}" data-sly-unwrap>
+        <!--/* Display solid color */-->
+        <div class="background-${properties.background} ${properties.class} bg-${properties.backgroundColorClass} text-${properties.mainColorClass} ${properties.fullHeight}"
+             style="${contentContainer.styles @ context='text'}">
+            <div class="overlay ${properties.overlayType} ${properties.overlaySize}"></div>
+                <div data-sly-resource="${@path='par', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+        </div>
+    </div>
+
+    <div data-sly-test="${properties.background != 'video' && properties.background != 'image' && properties.background != 'color'}" data-sly-unwrap>
+        <!--/* Display solid color */-->
+        <div class="background-${properties.background} ${properties.class} bg-${properties.backgroundColorClass} text-${properties.mainColorClass} ${properties.fullHeight}"
+             style="${contentContainer.styles @ context='text'}">
+            <div class="overlay ${properties.overlayType} ${properties.overlaySize}"></div>
+                <div data-sly-resource="${@path='par', resourceType='wcm/foundation/components/responsivegrid'}"></div>
+        </div>
+    </div>
+
+</div>
