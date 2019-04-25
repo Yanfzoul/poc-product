@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUsePojo;
+import com.adobe.poc.core.model.search.Item;
+import com.adobe.poc.core.model.search.ResultSearch;
 import com.adobe.poc.core.model.simpleproduct.SearchResult;
 import com.adobe.poc.core.model.simpleproduct.SimpleProduct;
 
@@ -15,6 +17,8 @@ public class ProductCategorySlider extends WCMUsePojo {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProductCategorySlider.class);
 	
 	private List<SimpleProduct> products;
+	
+	private List<Item> productsFromSearch;
 		  
     @Override
     public void activate() throws Exception {	
@@ -50,6 +54,8 @@ public class ProductCategorySlider extends WCMUsePojo {
     	if (categoryId == null) {
     		categoryId = getProperties().get("categoryId", "3");
     	}
+    	
+    	LOGGER.info("search : " + search + " brand " + brand + " color " + color + " priceMin " + priceMin + " priceMax " + priceMax + " categoryId " + categoryId);
 
         int nbMaxProducts = 10;
         final String nbMaxProduct = getProperties().get("nbMaxProducts", "10");
@@ -58,14 +64,25 @@ public class ProductCategorySlider extends WCMUsePojo {
         }
         SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts, null);
         
+        ResultSearch resultSearch = SearchManager.searchElastic(search, nbMaxProduct, categoryId, priceMin, priceMax, color, brand);
+        
         if (null != result) {
         	products = result.getItems();
+        }
+        LOGGER.info("resultSearch : " + resultSearch);
+        if (null != resultSearch) {
+        	productsFromSearch = resultSearch.getProducts().getItems();
+        	LOGGER.info("productsFromSearch.size() : " + productsFromSearch.size());
         }
         
     }
 
 	public List<SimpleProduct> getProducts() {
 		return products;
+	}
+	
+	public List<Item> getProductsFromSearch() {
+		return productsFromSearch;
 	}
 
 

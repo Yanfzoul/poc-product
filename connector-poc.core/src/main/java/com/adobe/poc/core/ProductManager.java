@@ -15,6 +15,7 @@ import com.adobe.poc.core.model.ProduitVariant;
 import com.adobe.poc.core.model.category.Category;
 import com.adobe.poc.core.model.category.ProductCategory;
 import com.adobe.poc.core.model.category.all.AllCateg;
+import com.adobe.poc.core.model.search.Item;
 import com.adobe.poc.core.model.simpleproduct.CustomAttribute;
 import com.adobe.poc.core.model.simpleproduct.MediaGalleryEntry;
 import com.adobe.poc.core.model.simpleproduct.SearchResult;
@@ -200,6 +201,17 @@ public class ProductManager {
 		}
 	}
 	
+	
+	/**
+	 * Update url of image attributes.
+	 *
+	 * @param customAttr the custom attr
+	 */
+	public static void updateImageUrlItem(Item item) {
+		if (StringUtils.isNotBlank(item.getImage())) {
+			item.setImage(URL_BASE_IMAGE + item.getImage());
+		}
+	}
 	/**
 	 * Update url of image attributes.
 	 *

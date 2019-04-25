@@ -33,11 +33,26 @@ public class NetClientGet {
                       return String;
                }
 			  });
+	
+	public static LoadingCache<String, String> cacheSearch = CacheBuilder.newBuilder()
+			  .maximumSize(1000)
+			  .expireAfterAccess(60, TimeUnit.SECONDS)
+			  .recordStats()
+			  .build(new CacheLoader<String, String>() {
+                public String load(String urlService) {
+                    final String String = NetClientGet.callServiceByGet(urlService,null);    
+                    return String;
+             }
+			  });
 
 	public static String callServiceByGetCached(String urlService, String token) {
 		String result = null;
 		try {
-			result = cache.get(urlService);
+			if (StringUtils.isNotBlank(token)) {
+				result = cache.get(urlService);
+			} else {
+				result = cacheSearch.get(urlService);
+			}
 		} catch (ExecutionException e) {
 			LOGGER.error("Error while call service rest from cache", e);
 		}
