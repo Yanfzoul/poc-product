@@ -52,27 +52,17 @@ public class ProductCategorySlider extends WCMUsePojo {
     	if (priceMax == null) {
     		priceMax = getProperties().get("priceMax", "");
     	}
-    
-    	
-    	if (categoryId == null) {
-    		categoryId = getProperties().get("categoryId", "3");
-    	}
     	
     	LOGGER.info("search : " + search + " brand " + brand + " color " + color + " priceMin " + priceMin + " priceMax " + priceMax + " categoryId " + categoryId);
 
-        int nbMaxProducts = 10;
         final String nbMaxProduct = getProperties().get("nbMaxProducts", "10");
-        if (StringUtils.isNotBlank(nbMaxProduct)) {
-        	nbMaxProducts = Integer.valueOf(nbMaxProduct);
-        }
-        SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts, null);
+        //SearchResult result = ProductManager.searchProduct(categoryId, null, nbMaxProducts, null);
         
         ResultSearch resultSearch = SearchManager.searchElastic(search, nbMaxProduct, categoryId, priceMin, priceMax, color, brand);
         
-        if (null != result) {
-        	products = result.getItems();
-        }
-        LOGGER.info("resultSearch : " + resultSearch);
+//        if (null != result) {
+//        	products = result.getItems();
+//        }
         if (null != resultSearch) {
         	productsFromSearch = resultSearch.getProducts().getItems();
         	facets = resultSearch.getFacets();
