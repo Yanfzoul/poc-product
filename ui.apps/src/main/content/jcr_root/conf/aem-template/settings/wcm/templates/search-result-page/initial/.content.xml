@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-04-18T11:08:37.279+02:00"
+        cq:lastModified="{Date}2019-04-25T17:12:28.745+02:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/aem-template/settings/wcm/templates/search-result-page"
         jcr:primaryType="cq:PageContent"
@@ -13,75 +13,34 @@
             <responsivegrid
                 jcr:created="{Date}2019-04-17T16:14:02.900+02:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2019-04-17T16:14:07.976+02:00"
+                jcr:lastModified="{Date}2019-04-25T15:59:36.858+02:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid">
-                <separator_1394259143
-                    jcr:created="{Date}2019-04-18T10:00:22.184+02:00"
+                <search
+                    jcr:created="{Date}2019-04-25T17:12:28.744+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2019-04-18T10:00:38.780+02:00"
+                    jcr:lastModified="{Date}2019-04-25T17:12:28.744+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aem-template/components/content/separator"
-                    backgroundColor="#FFFFFF"
-                    backgroundColorOption="none"
-                    height="20px"
-                    mainColor="#FFFFFF"
-                    mainColorOption="none"
-                    paddingBottom="0px"
-                    paddingLeft="0px"
-                    paddingRight="0px"
-                    paddingTop="0px"/>
-                <title
-                    jcr:created="{Date}2019-04-17T16:15:12.191+02:00"
+                    sling:resourceType="aem-template/components/content/search"/>
+                <product_grid_magento
+                    jcr:created="{Date}2019-04-25T17:02:17.417+02:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2019-04-18T11:08:37.276+02:00"
+                    jcr:lastModified="{Date}2019-04-25T17:02:26.507+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="[Résultats pour,Résultat de la recherche]"
-                    sling:resourceType="aem-template/components/content/title"
-                    backgroundColor="#FFFFFF"
-                    backgroundColorOption="none"
-                    mainColor="#FFFFFF"
-                    mainColorOption="none"
-                    mode="static"
-                    paddingBottom="0px"
-                    paddingLeft="0px"
-                    paddingRight="0px"
-                    paddingTop="0px"
-                    textAttributeName="Résultat de la recherche pour"
-                    type="h1"/>
-                <separator
-                    jcr:created="{Date}2019-04-17T16:38:47.891+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2019-04-18T10:01:02.439+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aem-template/components/content/separator"
-                    backgroundColor="#FFFFFF"
-                    backgroundColorOption="none"
-                    height="20px"
-                    mainColor="#FFFFFF"
-                    mainColorOption="none"
-                    paddingBottom="0px"
-                    paddingLeft="0px"
-                    paddingRight="0px"
-                    paddingTop="0px"/>
-                <product_grid
-                    jcr:created="{Date}2019-04-17T16:38:18.021+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2019-04-17T16:38:18.021+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aem-template/components/content/product-grid">
+                    sling:resourceType="aem-template-poc/components/content/product-grid-magento"
+                    categoryId="12"
+                    isSearch="true"
+                    nbMaxProducts="18">
                     <cq:responsive jcr:primaryType="nt:unstructured">
                         <default
                             jcr:primaryType="nt:unstructured"
                             offset="1"
                             width="10"/>
                     </cq:responsive>
-                </product_grid>
+                </product_grid_magento>
             </responsivegrid>
         </root>
     </jcr:content>
