@@ -1,7 +1,5 @@
 <header class="header header-absolute" style="position: fixed">
-    <!-- Navbar-->
-    <nav
-        class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a href="${properties.rootPath || currentStyle.rootPath @ extension='html'}" class="navbar-brand">
 				<div class="logo-header-footer" data-sly-resource="${'image' @ resourceType='aem-template/components/content/image'}"></div>
@@ -15,7 +13,9 @@
                 <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
                     <!-- Search Button-->
                     <div data-toggle="search" class="nav-item navbar-icon-link">
-                        <i class="fas fa-search"></i>
+                    	<a href="/content/cultura/fr/resultat-de-la-recherche.html">
+                        	<i class="fas fa-search"></i>
+                        </a>
                     </div>
                     <!-- User Not Logged - link to login page-->
                     <div class="nav-item"><a href="#" class="navbar-icon-link">
@@ -54,23 +54,5 @@
             </div>
         </div>
     </nav>
-    <!-- /Navbar -->
-    <!-- Fullscreen search area-->
-    <div class="search-area-wrapper">
-        <div class="search-area d-flex align-items-center justify-content-center">
-            <div class="close-btn">
-                <i class="far fa-times-circle fa-2x"></i>
-            </div>
-            <form action="/content/cultura/fr/resultat-de-la-recherche.html" class="search-area-form">
-                <div class="form-group position-relative">
-                    <input type="search" name="search" id="search" placeholder="What are you looking for?"
-                        class="search-area-input">
-                    <button type="submit" class="search-area-button">
-                        <i class="fas fa-search" style="padding-right: 10px"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
 </header>
 <div class="header-padding"></div>
