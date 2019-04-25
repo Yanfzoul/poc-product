@@ -4,40 +4,40 @@
             class="products-grid col-xl-${properties.isSearch ? '9' : '12' } col-lg-${properties.isSearch ? '8' : '12' } order-lg-2">
             <div class="row row-space">
                 <!-- product-->
-                <div data-sly-repeat="${products.products}" class="product-slider-item" data-sly-unwrap>
+                <div data-sly-repeat="${products.productsFromSearch}" class="product-slider-item" data-sly-unwrap>
                     <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
                         <div class="product product-grid">
-                            <div data-sly-repeat="${item.customAttributes}" data-sly-unwrap>
-                                <div data-sly-test="${item.attributeCode == 'image'}" data-sly-unwrap>
-                                    <div class="product-image">
-                                        <div class="ribbon ribbon-info">Fresh</div>
-                                        <img src="${item.value}" alt="product" class="img-fluid" />
-                                        <div class="product-hover-overlay"><a href="#l"
-                                                class="product-hover-overlay-link"></a>
-                                            <div class="product-hover-overlay-buttons"><a href="#"
-                                                    class="btn btn-outline-dark btn-product-left"><i
-                                                        class="fa fa-shopping-cart"></i></a><a href="#l"
-                                                    class="btn btn-dark btn-buy"><i class="fa-search fa"></i><span
-                                                        class="btn-buy-label ml-2">Aperçu</span></a><a href="#"
-                                                    data-toggle="modal" data-target="#exampleModal"
-                                                    class="btn btn-outline-dark btn-product-right"><i
-                                                        class="fa fa-expand-arrows-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                              <div class="product-image">
+                                  <div
+										data-sly-test="${item.prices[0].isDiscount == true}"
+										data-sly-unwrap>
+										<div class="ribbon ribbon-primary">Promo</div>
+								  </div>
+                                  <img src="${item.image}" alt="product" class="img-fluid" />
+                                  <div class="product-hover-overlay"><a href="#l"
+                                          class="product-hover-overlay-link"></a>
+                                      <div class="product-hover-overlay-buttons"><a href="#"
+                                              class="btn btn-outline-dark btn-product-left"><i
+                                                  class="fa fa-shopping-cart"></i></a><a href="#l"
+                                              class="btn btn-dark btn-buy"><i class="fa-search fa"></i><span
+                                                  class="btn-buy-label ml-2">Aperçu</span></a><a href="#"
+                                              data-toggle="modal" data-target="#exampleModal"
+                                              class="btn btn-outline-dark btn-product-right"><i
+                                                  class="fa fa-expand-arrows-alt"></i></a>
+                                      </div>
+                                  </div>
                             </div>
                             <div class="content-detail">
                                 <p class="content-text-title"><a href="#" class="text-title-link">${item.name}</a></p>
-                                <div data-sly-test="${item.extensionAttributes.stockItem.isInStock == true}"
+                                <div data-sly-test="${item.isInStock == true}"
                                     data-sly-unwrap>
                                     <p class="content-text-stock">En Stock</p>
                                 </div>
-                                <div data-sly-test="${item.extensionAttributes.stockItem.isInStock == false}"
+                                <div data-sly-test="${item.isInStock == false}"
                                     data-sly-unwrap>
                                     <p class="content-text-stock">Rupture de Stock</p>
                                 </div>
-                                <p class="content-text-price">${item.price} &#8364;</p>
+                                <p class="content-text-price">${ '#.##' @ format=item.prices[0].price} &#8364;</p>
                                 <a class="btn" href="#" role="button">Ajouter au panier</a>
                             </div>
                         </div>
