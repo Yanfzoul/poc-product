@@ -3,6 +3,7 @@ package com.adobe.poc.core;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,21 +14,42 @@ import com.adobe.poc.core.model.simpleproduct.SimpleProduct;
 public class ProductCategorySlider extends WCMUsePojo {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProductCategorySlider.class);
 	
-	private String lowerCaseTitle;
-	private String lowerCaseDescription;
-	private String reponseCusto = null;
 	private List<SimpleProduct> products;
-	private String typeProduct = null;
-	
-	  
+		  
     @Override
-    public void activate() throws Exception {
-        lowerCaseTitle = "test titre"; //getProperties().get("title", "").toLowerCase();
-        lowerCaseDescription = "test description"; //getProperties().get("description", "").toLowerCase();
-        String categoryId = getRequest().getRequestPathInfo().getSelectorString();
-        if (StringUtils.isBlank(categoryId)) {
-        	categoryId = getProperties().get("categoryId", "3");
-        }
+    public void activate() throws Exception {	
+    	SlingHttpServletRequest request = getRequest();
+    	String search = request.getParameter("search");
+    	String color = request.getParameter("color");
+    	String priceMin = request.getParameter("priceMin");
+    	String priceMax = request.getParameter("priceMax");
+    	String name = request.getParameter("name");
+    	String categoryId = request.getParameter("categoryId");
+ 
+    	if (search == null) {
+    		categoryId = getProperties().get("search", "");
+    	}
+    	
+    	if (color == null) {
+    		color = getProperties().get("color", "");
+    	}
+    	
+    	if (priceMin == null) {
+    		priceMin = getProperties().get("priceMin", "");
+    	}
+    	
+    	if (priceMax == null) {
+    		priceMax = getProperties().get("priceMax", "");
+    	}
+    	
+    	if (name == null) {
+    		name = getProperties().get("name", "");
+    	}
+    	
+    	if (categoryId == null) {
+    		categoryId = getProperties().get("categoryId", "3");
+    	}
+
         int nbMaxProducts = 10;
         final String nbMaxProduct = getProperties().get("nbMaxProducts", "10");
         if (StringUtils.isNotBlank(nbMaxProduct)) {
@@ -40,25 +62,10 @@ public class ProductCategorySlider extends WCMUsePojo {
         }
         
     }
-    
-    public String getLowerCaseTitle() {
-        return lowerCaseTitle;
-    }
-  
-    public String getLowerCaseDescription() {
-        return lowerCaseDescription;
-    }
-    
-    public String getReponseCusto() {
-        return reponseCusto;
-    }
 
 	public List<SimpleProduct> getProducts() {
 		return products;
 	}
 
-	public String getTypeProduct() {
-		return typeProduct;
-	}
 
 }
