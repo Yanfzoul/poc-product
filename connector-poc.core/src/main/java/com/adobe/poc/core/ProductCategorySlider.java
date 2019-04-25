@@ -27,7 +27,7 @@ public class ProductCategorySlider extends WCMUsePojo {
     	String categoryId = request.getParameter("categoryId");
  
     	if (search == null) {
-    		categoryId = getProperties().get("search", "");
+    		search = getProperties().get("search", "");
     	}
     	
     	if (brand == null) {
