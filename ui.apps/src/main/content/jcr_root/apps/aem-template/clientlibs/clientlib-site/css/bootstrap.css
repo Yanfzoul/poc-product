@@ -12347,6 +12347,7 @@ a.text-gray-900:hover, a.text-gray-900:focus {
     display: none
 }
 
+/*
 .search-area {
     width: 100vw;
     height: 100vh;
@@ -12356,6 +12357,7 @@ a.text-gray-900:hover, a.text-gray-900:focus {
     left: 0;
     z-index: 9999
 }
+*/
 
 .search-area .search-area-form {
     width: 100%;

@@ -29,12 +29,12 @@
                 <responsivegrid jcr:primaryType="nt:unstructured">
                     <content-default
                         jcr:description="Policy for editable layout containers"
-                        jcr:lastModified="{Date}2019-04-19T11:38:57.383+02:00"
+                        jcr:lastModified="{Date}2019-04-25T15:19:28.676+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="AEM Template Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,group:Cultura,group:Dynamic Media,group:Editorial,group:Structure]"
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:Cultura,group:Dynamic Media,group:Editorial,group:Magento,group:Structure]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -52,12 +52,12 @@
                             mergeList="{Boolean}true"/>
                     </content-default>
                     <policy_275284763161607
-                        jcr:lastModified="{Date}2019-04-23T13:57:40.316+02:00"
+                        jcr:lastModified="{Date}2019-04-25T15:20:11.062+02:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="AEM Teamplate Content Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,group:Cultura,/libs/dam/components/scene7/dynamicmedia,/libs/dam/components/scene7/interactivemedia,group:Editorial]">
+                        components="[/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,group:Cultura,/libs/dam/components/scene7/dynamicmedia,/libs/dam/components/scene7/interactivemedia,group:Editorial,group:Magento]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_275284763161607>
                     <policy_436826808892861
