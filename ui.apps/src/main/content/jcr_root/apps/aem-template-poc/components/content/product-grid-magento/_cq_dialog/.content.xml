@@ -46,7 +46,7 @@
                                             <nbMaxProducts
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldLabel="Nombre Max de produits carrousel"
+                                                fieldLabel="Nombre max de produits"
                                                 name="./nbMaxProducts"
                                                 required="{Boolean}true"/>
                                         </items>

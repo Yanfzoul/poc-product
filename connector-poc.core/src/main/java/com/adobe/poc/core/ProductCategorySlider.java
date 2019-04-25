@@ -20,14 +20,18 @@ public class ProductCategorySlider extends WCMUsePojo {
     public void activate() throws Exception {	
     	SlingHttpServletRequest request = getRequest();
     	String search = request.getParameter("search");
+    	String brand = request.getParameter("brand");
     	String color = request.getParameter("color");
     	String priceMin = request.getParameter("priceMin");
     	String priceMax = request.getParameter("priceMax");
-    	String name = request.getParameter("name");
     	String categoryId = request.getParameter("categoryId");
  
     	if (search == null) {
     		categoryId = getProperties().get("search", "");
+    	}
+    	
+    	if (brand == null) {
+    		brand = getProperties().get("brand", "");
     	}
     	
     	if (color == null) {
@@ -41,10 +45,7 @@ public class ProductCategorySlider extends WCMUsePojo {
     	if (priceMax == null) {
     		priceMax = getProperties().get("priceMax", "");
     	}
-    	
-    	if (name == null) {
-    		name = getProperties().get("name", "");
-    	}
+    
     	
     	if (categoryId == null) {
     		categoryId = getProperties().get("categoryId", "3");
