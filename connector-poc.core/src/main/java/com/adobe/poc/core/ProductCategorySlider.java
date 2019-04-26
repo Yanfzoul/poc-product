@@ -53,6 +53,10 @@ public class ProductCategorySlider extends WCMUsePojo {
     		priceMax = getProperties().get("priceMax", "");
     	}
     	
+    	if (categoryId == null) {
+    		categoryId = getProperties().get("categoryId", String.class);
+    	}
+    	
     	LOGGER.info("search : " + search + " brand " + brand + " color " + color + " priceMin " + priceMin + " priceMax " + priceMax + " categoryId " + categoryId);
 
         final String nbMaxProduct = getProperties().get("nbMaxProducts", "10");
