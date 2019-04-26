@@ -1,10 +1,18 @@
 package com.adobe.poc.core;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.poc.core.model.ProduitVariant;
+import com.adobe.poc.core.model.search.Brand;
+import com.adobe.poc.core.model.search.CategoryId;
+import com.adobe.poc.core.model.search.Color;
 import com.adobe.poc.core.model.search.Item;
 import com.adobe.poc.core.model.search.ResultSearch;
 
@@ -128,6 +136,15 @@ public class SearchManager {
 			for (Item item : resultSearch.getProducts().getItems()) {
 				ProductManager.updateImageUrlItem(item);
 			}
+			if (null != resultSearch.getFacets().getCategoryId()) {
+				resultSearch.getFacets().setCategoryId(cleanListCategory(resultSearch.getFacets().getCategoryId()));
+			}
+			if (null != resultSearch.getFacets().getColor()) {
+				resultSearch.getFacets().setColor(cleanListColor(resultSearch.getFacets().getColor()));
+			}
+			if (null != resultSearch.getFacets().getBrand()) {
+				resultSearch.getFacets().setBrand(cleanListBrand(resultSearch.getFacets().getBrand()));
+			}
 		}
 		return resultSearch;
 	}
@@ -147,6 +164,48 @@ public class SearchManager {
 			criteria.append(PARAMETER_AND);
 		}
 		return criteria.toString();
+	}
+	
+	public static List<CategoryId> cleanListCategory (List <CategoryId> list) {
+        final List<CategoryId> purgedList= new ArrayList<CategoryId> ();
+        final List<Integer> keyList = new ArrayList<Integer>();
+		if (null != list) {
+        	for (CategoryId categ : list) {
+        		if (!keyList.contains(categ.getKey().intValue())) {
+        			keyList.add(categ.getKey().intValue());
+        			purgedList.add(categ);
+        		}
+        	}
+        }
+        return purgedList;
+	}
+	
+	public static List<Brand> cleanListBrand (List <Brand> list) {
+        final List<Brand> purgedList= new ArrayList<Brand> ();
+        final List<String> keyList = new ArrayList<String>();
+		if (null != list) {
+        	for (Brand categ : list) {
+        		if (!keyList.contains(categ.getKey())) {
+        			keyList.add(categ.getKey());
+        			purgedList.add(categ);
+        		}
+        	}
+        }
+        return purgedList;
+	}
+	
+	public static List<Color> cleanListColor (List <Color> list) {
+        final List<Color> purgedList= new ArrayList<Color> ();
+        final List<String> keyList = new ArrayList<String>();
+		if (null != list) {
+        	for (Color categ : list) {
+        		if (!keyList.contains(categ.getKey())) {
+        			keyList.add(categ.getKey());
+        			purgedList.add(categ);
+        		}
+        	}
+        }
+        return purgedList;
 	}
 
 }
