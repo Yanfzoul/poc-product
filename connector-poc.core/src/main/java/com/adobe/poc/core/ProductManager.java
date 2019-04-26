@@ -210,6 +210,8 @@ public class ProductManager {
 	public static void updateImageUrlItem(Item item) {
 		if (StringUtils.isNotBlank(item.getImage())) {
 			item.setImage(URL_BASE_IMAGE + item.getImage());
+		} else {
+			item.setImage("/content/dam/cultura/produits/placeholder-vierge.jpg");
 		}
 	}
 	/**
