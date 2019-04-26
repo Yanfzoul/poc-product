@@ -34,8 +34,8 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/autocomplete"
                                                 fieldLabel="Catégorie à afficher"
-                                                name="./categoryId"
                                                 multiple="{Boolean}true"
+                                                name="./categoryId"
                                                 required="{Boolean}true">
                                                 <datasource
                                                     jcr:primaryType="nt:unstructured"
