@@ -1,0 +1,17 @@
+<div class="product-detail">
+    <div data-sly-use.detail="com.adobe.poc.core.ProductModel" data-sly-unwrap>
+    	<div class="product-info-section">
+    		<div class="product-title">${detail.product.name}</div>
+            <div><a href="#">Soyer le premier à commenter ce produit</a></div>
+        	<div class="product-description">${detail.product.description}</div>
+        	<div class="product-price"><span id="product-price"></span>${detail.product.price} €</div>
+       	<div>
+        <div class="separator"></div>
+        <div class="product-community-section">
+        	<div><i class="fas fa-heart fa-sm"></i> AJOUTER À MA LISTE D'ENVIE</div>
+            <div><i class="fas fa-chart-bar fa-sm"></i> AJOUTER AU COMPARATEUR</div>
+            <div><i class="fas fa-envelope fa-sm"></i> EMAIL</div>
+        </div>
+    </div>
+
+</div>
