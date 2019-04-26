@@ -305,6 +305,7 @@ public class ProductManager {
 		SimpleProduct simpleProduct = null;
 		final String reponseCusto = getProduct(sku);
 		if (StringUtils.isNotBlank(reponseCusto)) {
+			LOGGER.info(reponseCusto);
 			simpleProduct = JsonConverterUtils.convertJsonStringToObject(reponseCusto, SimpleProduct.class);
 		}
 
