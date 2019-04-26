@@ -105,44 +105,11 @@
                     <div id="brandFilterMenu" class="expand-lg collapse show">
                         <h6 class="sidebar-heading d-none d-lg-block">Brands </h6>
                         <form action="#" class="mt-4 mt-lg-0">
-                            <div class="form-group mb-1">
+                            <div class="form-group mb-1" data-sly-repeat="${facets.brand}">
                                 <div class="custom-control custom-checkbox">
-                                    <input id="brand0" type="checkbox" name="clothes-brand" checked
-                                        class="custom-control-input">
-                                    <label for="brand0" class="custom-control-label">Calvin Klein
-                                        <small>(18)</small></label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input id="brand1" type="checkbox" name="clothes-brand" checked
-                                        class="custom-control-input">
-                                    <label for="brand1" class="custom-control-label">Levi Strauss
-                                        <small>(30)</small></label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input id="brand2" type="checkbox" name="clothes-brand"
-                                        class="custom-control-input">
-                                    <label for="brand2" class="custom-control-label">Hugo Boss
-                                        <small>(120)</small></label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input id="brand3" type="checkbox" name="clothes-brand"
-                                        class="custom-control-input">
-                                    <label for="brand3" class="custom-control-label">Tomi Hilfiger
-                                        <small>(70)</small></label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input id="brand4" type="checkbox" name="clothes-brand"
-                                        class="custom-control-input">
-                                    <label for="brand4" class="custom-control-label">Tom Ford
-                                        <small>(110)</small></label>
+                                    <input id="brand${itemList.index}" type="checkbox" name="clothes-brand" checked
+                                        class="custom-control-input" value="${item.key}">
+                                    <label for="brand${itemList.index}" class="custom-control-label">${item.value}</label>
                                 </div>
                             </div>
                         </form>
@@ -153,30 +120,13 @@
                         size</a>
                     <!-- Size filter menu-->
                     <div id="sizeFilterMenu" class="expand-lg collapse">
-                        <h6 class="sidebar-heading d-none d-lg-block">Size </h6>
+                        <h6 class="sidebar-heading d-none d-lg-block">Category </h6>
                         <form action="#" class="mt-4 mt-lg-0">
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-radio">
-                                    <input id="size0" type="radio" name="size" checked class="custom-control-input">
-                                    <label for="size0" class="custom-control-label">Small</label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-radio">
-                                    <input id="size1" type="radio" name="size" class="custom-control-input">
-                                    <label for="size1" class="custom-control-label">Medium</label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-radio">
-                                    <input id="size2" type="radio" name="size" class="custom-control-input">
-                                    <label for="size2" class="custom-control-label">Large</label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-1">
-                                <div class="custom-control custom-radio">
-                                    <input id="size3" type="radio" name="size" class="custom-control-input">
-                                    <label for="size3" class="custom-control-label">X-Large</label>
+                        	<div class="form-group mb-1" data-sly-repeat="${facets.category}">
+                                <div class="custom-control custom-checkbox">
+                                    <input id="size${itemList.index}" type="checkbox" name="clothes-brand" checked
+                                        class="custom-control-input" value="${item.key}">
+                                    <label for="size${itemList.index}" class="custom-control-label">${item.value}</label>
                                 </div>
                             </div>
                         </form>
@@ -190,29 +140,11 @@
                         <h6 class="sidebar-heading d-none d-lg-block">Colour </h6>
                         <div class="mt-4 mt-lg-0">
                             <ul class="list-inline mb-0 colours-wrapper">
-                                <li class="list-inline-item">
-                                    <label for="colour_sidebar_Blue" style="background-color: #668cb9"
+                                <li class="list-inline-item" data-sly-repeat="${facets.color}">
+                                    <label for="colour_sidebar_${itemList.index}" style="background-color: #668cb9"
                                         data-allow-multiple class="btn-colour"> </label>
-                                    <input type="checkbox" name="colour" value="value_sidebar_Blue"
-                                        id="colour_sidebar_Blue" class="input-invisible">
-                                </li>
-                                <li class="list-inline-item">
-                                    <label for="colour_sidebar_White" style="background-color: #fff" data-allow-multiple
-                                        class="btn-colour"> </label>
-                                    <input type="checkbox" name="colour" value="value_sidebar_White"
-                                        id="colour_sidebar_White" class="input-invisible">
-                                </li>
-                                <li class="list-inline-item">
-                                    <label for="colour_sidebar_Violet" style="background-color: #8b6ea4"
-                                        data-allow-multiple class="btn-colour"> </label>
-                                    <input type="checkbox" name="colour" value="value_sidebar_Violet"
-                                        id="colour_sidebar_Violet" class="input-invisible">
-                                </li>
-                                <li class="list-inline-item">
-                                    <label for="colour_sidebar_Red" style="background-color: #dd6265"
-                                        data-allow-multiple class="btn-colour"> </label>
-                                    <input type="checkbox" name="colour" value="value_sidebar_Red"
-                                        id="colour_sidebar_Red" class="input-invisible">
+                                    <input type="checkbox" name="colour" value="${item.key}"
+                                        id="colour_sidebar_${itemList.index}" class="input-invisible" >
                                 </li>
                             </ul>
                         </div>

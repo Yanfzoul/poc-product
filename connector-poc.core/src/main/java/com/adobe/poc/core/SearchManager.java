@@ -45,7 +45,7 @@ public class SearchManager {
 	public static final String PARAMETER_LIMIT = "limit=";
 	
 	/** The Constant PARAMETER_PRICE_MIN. */
-	public static final String PARAMETER_PRICE_MIN = "prince_min=";
+	public static final String PARAMETER_PRICE_MIN = "price_min=";
 	
 	/** The Constant PARAMETER_PRICE_MAX. */
 	public static final String PARAMETER_PRICE_MAX = "price_max=";
