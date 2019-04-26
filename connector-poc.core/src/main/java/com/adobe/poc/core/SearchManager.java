@@ -1,22 +1,18 @@
 package com.adobe.poc.core;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.adobe.poc.core.model.ProduitVariant;
 import com.adobe.poc.core.model.search.Brand;
 import com.adobe.poc.core.model.search.CategoryId;
 import com.adobe.poc.core.model.search.Color;
 import com.adobe.poc.core.model.search.Item;
 import com.adobe.poc.core.model.search.ResultSearch;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SearchManager.
  */
@@ -36,6 +32,9 @@ public class SearchManager {
 	
 	/** The Constant URL_SEARCH_ELASTIC. */
 	public static final String URL_SEARCH_ELASTIC = "http://ec2-35-181-68-229.eu-west-3.compute.amazonaws.com/search/search.php";
+	
+	/** The Constant URL_SEARCH_ELASTIC_CROSS. */
+	public static final String URL_SEARCH_ELASTIC_CROSS = "http://ec2-35-181-68-229.eu-west-3.compute.amazonaws.com/search/search_cross.php";
 	
 	/** The Constant PARAMETER_START_STRING. */
 	public static final String PARAMETER_START_STRING = "?";
@@ -63,6 +62,9 @@ public class SearchManager {
 	
 	/** The Constant PARAMETER_BRAND. */
 	public static final String PARAMETER_BRAND = "brand=";
+	
+	/** The Constant PARAMETER_SKU. */
+	public static final String PARAMETER_SKU = "sku=";
 	
 	/**
 	 * Search poc test.
@@ -117,6 +119,23 @@ public class SearchManager {
 	}
 	
 	/**
+	 * Search cross cached.
+	 *
+	 * @param sku the sku
+	 * @return the string
+	 */
+	public static String searchCrossCached(final String sku) {
+		String output = null;
+		final StringBuilder query = new StringBuilder();
+		query.append(URL_SEARCH_ELASTIC_CROSS);
+		query.append(PARAMETER_START_STRING);
+		query.append(generateSearchCriteria(sku, PARAMETER_SKU));
+		
+		output = NetClientGet.callServiceByGetCached(query.toString(), null);
+		return output;
+	}
+	
+	/**
 	 * Search elastic.
 	 *
 	 * @param name the name
@@ -131,6 +150,33 @@ public class SearchManager {
 	public static ResultSearch searchElastic(final String name, final String limit, final String categoryId, final String priceMin, final String priceMax, final String color, final String brand) {
 		ResultSearch resultSearch = null;
 		String output = searchCached(name, limit, categoryId, priceMin, priceMax, color, brand);
+		resultSearch = JsonConverterUtils.convertJsonStringToObject(output, ResultSearch.class);
+		if (resultSearch != null) {
+			for (Item item : resultSearch.getProducts().getItems()) {
+				ProductManager.updateImageUrlItem(item);
+			}
+			if (null != resultSearch.getFacets().getCategoryId()) {
+				resultSearch.getFacets().setCategoryId(cleanListCategory(resultSearch.getFacets().getCategoryId()));
+			}
+			if (null != resultSearch.getFacets().getColor()) {
+				resultSearch.getFacets().setColor(cleanListColor(resultSearch.getFacets().getColor()));
+			}
+			if (null != resultSearch.getFacets().getBrand()) {
+				resultSearch.getFacets().setBrand(cleanListBrand(resultSearch.getFacets().getBrand()));
+			}
+		}
+		return resultSearch;
+	}
+	
+	/**
+	 * Search elastic cross.
+	 *
+	 * @param sku the sku
+	 * @return the result search
+	 */
+	public static ResultSearch searchElasticCross(final String sku) {
+		ResultSearch resultSearch = null;
+		String output = searchCrossCached(sku);
 		resultSearch = JsonConverterUtils.convertJsonStringToObject(output, ResultSearch.class);
 		if (resultSearch != null) {
 			for (Item item : resultSearch.getProducts().getItems()) {
@@ -166,6 +212,12 @@ public class SearchManager {
 		return criteria.toString();
 	}
 	
+	/**
+	 * Clean list category.
+	 *
+	 * @param list the list
+	 * @return the list
+	 */
 	public static List<CategoryId> cleanListCategory (List <CategoryId> list) {
         final List<CategoryId> purgedList= new ArrayList<CategoryId> ();
         final List<Integer> keyList = new ArrayList<Integer>();
@@ -180,6 +232,12 @@ public class SearchManager {
         return purgedList;
 	}
 	
+	/**
+	 * Clean list brand.
+	 *
+	 * @param list the list
+	 * @return the list
+	 */
 	public static List<Brand> cleanListBrand (List <Brand> list) {
         final List<Brand> purgedList= new ArrayList<Brand> ();
         final List<String> keyList = new ArrayList<String>();
@@ -194,6 +252,12 @@ public class SearchManager {
         return purgedList;
 	}
 	
+	/**
+	 * Clean list color.
+	 *
+	 * @param list the list
+	 * @return the list
+	 */
 	public static List<Color> cleanListColor (List <Color> list) {
         final List<Color> purgedList= new ArrayList<Color> ();
         final List<String> keyList = new ArrayList<String>();

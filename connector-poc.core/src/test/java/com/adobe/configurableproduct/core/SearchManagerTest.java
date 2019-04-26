@@ -30,4 +30,11 @@ public class SearchManagerTest {
 		Assert.assertNotNull(result);
 	}
 	
+	@Test
+	public void searchElasticCrossTest() {
+		final ResultSearch result = SearchManager.searchElasticCross("sku14838");
+		System.out.println(result.getProducts().getItems().size());
+		Assert.assertNotNull(result);
+	}
+	
 }

@@ -39,6 +39,19 @@
                     </div>
                 </div>
                 <!-- /product-->
+                <!-- events -->
+                <div data-sly-repeat="${products.events.items}" class="product-slider-item" data-sly-unwrap>
+                    <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
+                        <div class="product product-grid">
+                            <div class="content-detail">
+                                <p class="content-text-title"><a href="#" class="text-title-link">${item.libelle}</a></p>
+                                <p class="content-text-stock">${item.lieu}</p>
+                                <p class="content-text-price">de ${item.dates[0]} à ${item.dates[1]}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /events-->
             </div>
             <div data-sly-test="${products.productsFromSearch.size}" data-sly-unwrap>
                 <nav aria-label="page navigation" class="d-flex justify-content-center mb-5 mt-3">
