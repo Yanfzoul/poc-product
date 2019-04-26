@@ -94,6 +94,15 @@
                                 $("#slider-snap-input-lower").val($("#slider-range").slider("values", 0));
                                 $("#slider-snap-input-upper").val($("#slider-range").slider("values", 1));
                             });
+                            
+                            function checkCateg(categoryId){
+                            	var searchedCategories = categoryId.split(",");
+                            	$(".checkCategory").each(function() {
+                            		if (searchedCategories.include(this.val())) {
+                            			this.prop('checked', true);
+                            		}
+                            	});
+                            }
 
                         </script>
                         <div id="slider-range"></div>
