@@ -16,17 +16,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Events {
 
 @JsonProperty("items")
-private List<Object> items = null;
+private List<EventItem> items = null;
 @JsonIgnore
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 @JsonProperty("items")
-public List<Object> getItems() {
+public List<EventItem> getItems() {
 return items;
 }
 
 @JsonProperty("items")
-public void setItems(List<Object> items) {
+public void setItems(List<EventItem> items) {
 this.items = items;
 }
 

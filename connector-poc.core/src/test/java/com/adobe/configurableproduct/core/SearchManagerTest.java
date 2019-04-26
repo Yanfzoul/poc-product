@@ -25,7 +25,7 @@ public class SearchManagerTest {
 	
 	@Test
 	public void searchElasticTest() {
-		final ResultSearch result = SearchManager.searchElastic("test", null, null, null, null, null, null);
+		final ResultSearch result = SearchManager.searchElastic("dernier", null, null, null, null, null, null);
 		System.out.println(result.getProducts().getItems().size());
 		Assert.assertNotNull(result);
 	}

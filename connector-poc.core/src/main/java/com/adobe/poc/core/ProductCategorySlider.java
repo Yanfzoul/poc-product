@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUsePojo;
+import com.adobe.poc.core.model.search.Events;
 import com.adobe.poc.core.model.search.Facets;
 import com.adobe.poc.core.model.search.Item;
 import com.adobe.poc.core.model.search.ResultSearch;
@@ -22,6 +23,8 @@ public class ProductCategorySlider extends WCMUsePojo {
 	private List<Item> productsFromSearch;
 	
 	private Facets facets;
+	
+	private Events events;
 		  
     @Override
     public void activate() throws Exception {	
@@ -70,6 +73,7 @@ public class ProductCategorySlider extends WCMUsePojo {
         if (null != resultSearch) {
         	productsFromSearch = resultSearch.getProducts().getItems();
         	facets = resultSearch.getFacets();
+        	events = resultSearch.getEvents();
         	LOGGER.info(facets.getCategoryId().size() + "CATEGORY SIZE");
         	LOGGER.info("productsFromSearch.size() : " + productsFromSearch.size());
         }
@@ -86,6 +90,10 @@ public class ProductCategorySlider extends WCMUsePojo {
 
 	public Facets getFacets() {
 		return facets;
+	}
+	
+	public Events getEvents() {
+		return events;
 	}
 
 }
