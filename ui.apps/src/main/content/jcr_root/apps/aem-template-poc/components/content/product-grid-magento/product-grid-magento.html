@@ -40,26 +40,30 @@
                 </div>
                 <!-- /product-->
             </div>
-            <nav aria-label="page navigation" class="d-flex justify-content-center mb-5 mt-3">
-                <ul class="pagination">
-                    <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span
-                                aria-hidden="true">Prev</span><span class="sr-only">Previous</span></a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1 </a></li>
-                    <li class="page-item"><a href="#" class="page-link">2 </a></li>
-                    <li class="page-item"><a href="#" class="page-link">3 </a></li>
-                    <li class="page-item"><a href="#" class="page-link">4 </a></li>
-                    <li class="page-item"><a href="#" class="page-link">5 </a></li>
-                    <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span
-                                aria-hidden="true">Next</span><span class="sr-only">Next </span></a></li>
-                </ul>
-            </nav>
+            <div data-sly-test="${products.productsFromSearch.size}" data-sly-unwrap>
+                <nav aria-label="page navigation" class="d-flex justify-content-center mb-5 mt-3">
+                    <ul class="pagination">
+                        <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span
+                                    aria-hidden="true">Prev</span><span class="sr-only">Previous</span></a></li>
+                        <li class="page-item active"><a href="#" class="page-link">1 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">2 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">3 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">4 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">5 </a></li>
+                        <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span
+                                    aria-hidden="true">Next</span><span class="sr-only">Next </span></a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <!-- / Grid End-->
         <!-- Sidebar-->
         <div data-sly-test="${properties.isSearch}" data-sly-unwrap>
+
             <div class="sidebar col-xl-3 col-lg-4 order-lg-1">
                 <div class="sidebar-block px-3 px-lg-0 mr-lg-4"><a data-toggle="collapse" href="#priceFilterMenu"
-                        aria-expanded="false" aria-controls="priceFilterMenu" class="d-lg-none block-toggler">Filter by
+                        aria-expanded="false" aria-controls="priceFilterMenu" class="d-lg-none block-toggler">Filter
+                        by
                         price</a>
                     <div id="priceFilterMenu" class="expand-lg collapse">
                         <h6 class="sidebar-heading d-none d-lg-block">Price </h6>
@@ -97,73 +101,62 @@
                             <div class="min">
                                 <span id="slider-snap-value-lower">From €
                                     <input type="text" name="pricefrom" value="${!request.requestParameterMap['priceMin'] ? 0 :
-                                    request.requestParameterMap['priceMin'][0].toString}" readonly id="slider-snap-input-lower"
-                                        class="slider-snap-input" style="border:0">
+                                                request.requestParameterMap['priceMin'][0].toString}" readonly
+                                        id="slider-snap-input-lower" class="slider-snap-input" style="border:0">
                                 </span>
                             </div>
                             <div class="max">
                                 <span id="slider-snap-value-upper">To €
                                     <input type="text" value="${!request.requestParameterMap['priceMax'] ? 500 :
-                                    request.requestParameterMap['priceMax'][0].toString}" name="priceto" readonly id="slider-snap-input-upper"
-                                        class="slider-snap-input" style="border:0">
+                                                request.requestParameterMap['priceMax'][0].toString}" name="priceto"
+                                        readonly id="slider-snap-input-upper" class="slider-snap-input"
+                                        style="border:0">
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="sidebar-block px-3 px-lg-0 mr-lg-4"><a data-toggle="collapse" href="#brandFilterMenu"
-                        aria-expanded="true" aria-controls="brandFilterMenu" class="d-lg-none block-toggler">Filter by
+                        aria-expanded="true" aria-controls="brandFilterMenu" class="d-lg-none block-toggler">Filter
+                        by
                         brand</a>
                     <!-- Brand filter menu - this menu has .show class, so is expanded by default-->
                     <div id="brandFilterMenu" class="expand-lg collapse show">
                         <h6 class="sidebar-heading d-none d-lg-block">Brands </h6>
                         <form action="#" class="mt-4 mt-lg-0">
-                            <div class="form-group mb-1" data-sly-repeat="${facets.brand}">
+                            <div class="form-group mb-1" data-sly-repeat="${products.facets.brand}">
                                 <div class="custom-control custom-checkbox">
-                                    <input id="brand${itemList.index}" type="checkbox" name="clothes-brand" checked
+                                    <input id="brand${itemList.index}" type="checkbox" name="brand"
                                         class="custom-control-input" value="${item.key}">
-                                    <label for="brand${itemList.index}" class="custom-control-label">${item.value}</label>
+                                    <label for="brand${itemList.index}"
+                                        class="custom-control-label">${item.value}</label>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="sidebar-block px-3 px-lg-0 mr-lg-4"> <a data-toggle="collapse" href="#sizeFilterMenu"
-                        aria-expanded="false" aria-controls="sizeFilterMenu" class="d-lg-none block-toggler">Filter by
-                        size</a>
+                        aria-expanded="false" aria-controls="sizeFilterMenu" class="d-lg-none block-toggler">Filter
+                        by
+                        category</a>
                     <!-- Size filter menu-->
                     <div id="sizeFilterMenu" class="expand-lg collapse">
                         <h6 class="sidebar-heading d-none d-lg-block">Category </h6>
-                        <form action="#" class="mt-4 mt-lg-0">
-                        	<div class="form-group mb-1" data-sly-repeat="${facets.category}">
+                        <form action="#" class="mt-4 mt-lg-0" id="categorIdForm">
+                            <div class="form-group mb-1 categoriesFacets"
+                                data-sly-repeat="${products.facets.categoryId}">
                                 <div class="custom-control custom-checkbox">
-                                    <input id="size${itemList.index}" type="checkbox" name="clothes-brand" checked
+                                    <input id="size${itemList.index}" type="checkbox" name="categoryId"
                                         class="custom-control-input" value="${item.key}">
-                                    <label for="size${itemList.index}" class="custom-control-label">${item.value}</label>
+                                    <label for="size${itemList.index}"
+                                        class="custom-control-label">${item.value}</label>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="sidebar-block px-3 px-lg-0 mr-lg-4"><a data-toggle="collapse" href="#colourFilterMenu"
-                        aria-expanded="false" aria-controls="colourFilterMenu" class="d-lg-none block-toggler">Filter by
-                        colour</a>
-                    <!-- Size filter menu-->
-                    <div id="colourFilterMenu" class="expand-lg collapse">
-                        <h6 class="sidebar-heading d-none d-lg-block">Colour </h6>
-                        <div class="mt-4 mt-lg-0">
-                            <ul class="list-inline mb-0 colours-wrapper">
-                                <li class="list-inline-item" data-sly-repeat="${facets.color}">
-                                    <label for="colour_sidebar_${itemList.index}" style="background-color: #668cb9"
-                                        data-allow-multiple class="btn-colour"> </label>
-                                    <input type="checkbox" name="colour" value="${item.key}"
-                                        id="colour_sidebar_${itemList.index}" class="input-invisible" >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
+
         </div>
         <!-- /Sidebar end-->
     </div>

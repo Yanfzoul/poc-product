@@ -70,6 +70,7 @@ public class ProductCategorySlider extends WCMUsePojo {
         if (null != resultSearch) {
         	productsFromSearch = resultSearch.getProducts().getItems();
         	facets = resultSearch.getFacets();
+        	LOGGER.info(facets.getCategoryId().size() + "CATEGORY SIZE");
         	LOGGER.info("productsFromSearch.size() : " + productsFromSearch.size());
         }
         
