@@ -1,7 +1,4 @@
 $(function () {
-
-
-
     $('.search-area-input').on('keyup', function () {
         var search = $('.search-area-input').val();
         var priceMin = $("#slider-snap-input-lower").val();
@@ -12,6 +9,8 @@ $(function () {
                 $(".product-grid-magento").html(data);
             });
     });
+
+	
 
     $(document).on('change', '.categoriesFacets input', function () {
         var str = $("form").serialize();

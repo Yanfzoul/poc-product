@@ -33,7 +33,7 @@
                                     <p class="content-text-stock">Rupture de Stock</p>
                                 </div>
                                 <p class="content-text-price">${ '#.##' @ format=item.prices[0].price} &#8364;</p>
-                                <a class="btn" href="/content/cultura/fr/product.${item.sku}.html" role="button">Ajouter au panier</a>
+                                <a class="btn" href="#" role="button">Ajouter au panier</a>
                             </div>
                         </div>
                     </div>
@@ -106,6 +106,9 @@
                                 });
                                 $("#slider-snap-input-lower").val($("#slider-range").slider("values", 0));
                                 $("#slider-snap-input-upper").val($("#slider-range").slider("values", 1));
+                                $('.categoriesFacets input').each(function( index ) {
+
+                                });
                             });
                             
                             function checkCateg(categoryId){
