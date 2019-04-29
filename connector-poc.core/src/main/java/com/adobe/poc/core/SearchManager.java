@@ -54,6 +54,9 @@ public class SearchManager {
 	/** The Constant PARAMETER_PRICE_MIN. */
 	public static final String PARAMETER_PRICE_MIN = "price_min=";
 	
+	/** The Constant PARAMETER_PRICE_MIN. */
+	public static final String PARAMETER_CATEGORY_IDS = "category_ids=";
+	
 	/** The Constant PARAMETER_PRICE_MAX. */
 	public static final String PARAMETER_PRICE_MAX = "price_max=";
 	
@@ -101,19 +104,20 @@ public class SearchManager {
 	 * @param brand the brand
 	 * @return the string
 	 */
-	public static String searchCached(final String name, final String limit, final String categoryId, final String priceMin, final String priceMax, final String color, final String brand) {
+	public static String searchCached(final String name, final String limit, final String[] categoryId, final String priceMin, final String priceMax, final String color, final String brand) {
 		String output = null;
 		final StringBuilder query = new StringBuilder();
 		query.append(URL_SEARCH_ELASTIC);
 		query.append(PARAMETER_START_STRING);
 		query.append(generateSearchCriteria(name, PARAMETER_NAME));
 		query.append(generateSearchCriteria(limit, PARAMETER_LIMIT));
-		query.append(generateSearchCriteria(categoryId, PARAMETER_CATEGORY_ID));
+		query.append(generateSearchCriteriaArray(categoryId));
 		query.append(generateSearchCriteria(priceMin, PARAMETER_PRICE_MIN));
 		query.append(generateSearchCriteria(priceMax, PARAMETER_PRICE_MAX));
 		query.append(generateSearchCriteria(color, PARAMETER_COLOR));
 		query.append(generateSearchCriteria(brand, PARAMETER_BRAND));
 		
+		LOGGER.info("REQUEST " + query.toString());
 		output = NetClientGet.callServiceByGetCached(query.toString(), null);
 		return output;
 	}
@@ -147,7 +151,7 @@ public class SearchManager {
 	 * @param brand the brand
 	 * @return the string
 	 */
-	public static ResultSearch searchElastic(final String name, final String limit, final String categoryId, final String priceMin, final String priceMax, final String color, final String brand) {
+	public static ResultSearch searchElastic(final String name, final String limit, final String[] categoryId, final String priceMin, final String priceMax, final String color, final String brand) {
 		ResultSearch resultSearch = null;
 		String output = searchCached(name, limit, categoryId, priceMin, priceMax, color, brand);
 		resultSearch = JsonConverterUtils.convertJsonStringToObject(output, ResultSearch.class);
@@ -209,6 +213,22 @@ public class SearchManager {
 			criteria.append(value);
 			criteria.append(PARAMETER_AND);
 		}
+		return criteria.toString();
+	}
+	
+	public static String generateSearchCriteriaArray(final String[] categories) {
+		final StringBuilder criteria = new StringBuilder();
+		if (categories.length > 0)
+			criteria.append(PARAMETER_CATEGORY_IDS);
+		for (String cat : categories) {
+			criteria.append(cat);
+			criteria.append(",");
+		}
+		if (categories.length > 0) {
+			criteria.deleteCharAt(criteria.length() -1);
+			criteria.append(PARAMETER_AND);
+		}
+		LOGGER.info("ARRAY :" + criteria.toString());
 		return criteria.toString();
 	}
 	

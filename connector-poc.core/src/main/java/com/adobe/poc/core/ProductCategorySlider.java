@@ -34,7 +34,7 @@ public class ProductCategorySlider extends WCMUsePojo {
     	String color = request.getParameter("color");
     	String priceMin = request.getParameter("priceMin");
     	String priceMax = request.getParameter("priceMax");
-    	String categoryId = request.getParameter("categoryId");
+    	String[] categoryId = request.getParameterValues("categoryId");
  
     	if (search == null) {
     		search = getProperties().get("search", "");
@@ -57,8 +57,11 @@ public class ProductCategorySlider extends WCMUsePojo {
     	}
     	
     	if (categoryId == null) {
-    		categoryId = getProperties().get("categoryId", String.class);
+    		categoryId = getProperties().get("categoryId", new String[0]);
     	}
+    	
+    	for (String str : categoryId)
+    		LOGGER.info("TEST CATEGORIES" + str);
     	
     	LOGGER.info("search : " + search + " brand " + brand + " color " + color + " priceMin " + priceMin + " priceMax " + priceMax + " categoryId " + categoryId);
 
