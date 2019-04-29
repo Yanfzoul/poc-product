@@ -1,190 +1,207 @@
 <div data-sly-use.products="com.adobe.poc.core.ProductCategorySlider" data-sly-unwrap>
-        <div class="row">
-            <div
-                class="products-grid col-xl-${properties.isSearch ? '9' : '12' } col-lg-${properties.isSearch ? '8' : '12' } order-lg-2">
-                <div class="row row-space">
-                    <!-- product-->
-                    <div data-sly-repeat="${products.productsFromSearch}" class="product-slider-item" data-sly-unwrap>
-                        <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
-                            <div class="product product-grid">
-                                <div class="product-image">
-                                    <div data-sly-test="${item.prices[0].isDiscount == true}" data-sly-unwrap>
-                                        <div class="ribbon ribbon-primary">Promo</div>
-                                    </div>
-                                    <img src="${item.image}" alt="product" class="img-fluid" />
-                                    <div class="product-hover-overlay"><a href="#l" class="product-hover-overlay-link"></a>
-                                        <div class="product-hover-overlay-buttons"><a href="#"
-                                                class="btn btn-outline-dark btn-product-left"><i
-                                                    class="fa fa-shopping-cart"></i></a><a href="#l"
-                                                class="btn btn-dark btn-buy"><i class="fa-search fa"></i><span
-                                                    class="btn-buy-label ml-2">Aperçu</span></a><a href="#"
-                                                data-toggle="modal" data-target="#exampleModal"
-                                                class="btn btn-outline-dark btn-product-right"><i
-                                                    class="fa fa-expand-arrows-alt"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content-detail">
-                                    <p class="content-text-title"><a href="#" class="text-title-link">${item.name}</a></p>
-                                    <div data-sly-test="${item.isInStock == true}" data-sly-unwrap>
-                                        <p class="content-text-stock">En Stock</p>
-                                    </div>
-                                    <div data-sly-test="${item.isInStock == false}" data-sly-unwrap>
-                                        <p class="content-text-stock">Rupture de Stock</p>
-                                    </div>
-                                    <p class="content-text-price">${ '#.##' @ format=item.prices[0].price} &#8364;</p>
-                                    <a class="btn" href="#" role="button">Ajouter au panier</a>
-                                </div>
+    <div class="row">
+        <div
+            class="products-grid col-xl-${properties.isSearch ? '9' : '12' } col-lg-${properties.isSearch ? '8' : '12' } order-lg-2">
+            <!-- events -->
+            <div class="row">
+                <div data-sly-test="${products.events.items.size}" data-sly-unwrap>
+                    <h3>Événements :</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div data-sly-repeat="${products.events.items}" class="product-slider-item" data-sly-unwrap>
+                    <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
+                        <div class="product product-grid">
+                            <div class="content-detail">
+                                <p class="content-text-title"><a href="#" class="text-title-link">${item.libelle}</a>
+                                </p>
+                                <p class="content-text-stock">${item.lieu}</p>
+                                <p class="content-text-price">de ${item.dates[0]} à ${item.dates[1]}</p>
                             </div>
                         </div>
                     </div>
-                    <!-- /product-->
-                    <!-- events -->
-            <div data-sly-repeat="${products.events.items}" class="product-slider-item" data-sly-unwrap>
-                <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
-                    <div class="product product-grid">
-                        <div class="content-detail">
-                            <p class="content-text-title"><a href="#" class="text-title-link">${item.libelle}</a></p>
-                            <p class="content-text-stock">${item.lieu}</p>
-                            <p class="content-text-price">de ${item.dates[0]} � ${item.dates[1]}</p>
-                        </div>
-                    </div>
+                </div>
+                <!-- /events-->
+            </div>
+            <!-- product-->
+            <div class="row">
+                <div data-sly-test="${products.events.items.size}" data-sly-unwrap>
+                    <h3>Produits :</h3>
                 </div>
             </div>
-            <!-- /events-->
-                </div>
-                <div data-sly-test="${products.productsFromSearch.size}" data-sly-unwrap>
-                    <nav aria-label="page navigation" class="d-flex justify-content-center mb-5 mt-3">
-                        <ul class="pagination">
-                            <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span
-                                        aria-hidden="true">Prev</span><span class="sr-only">Previous</span></a></li>
-                            <li class="page-item active"><a href="#" class="page-link">1 </a></li>
-                            <li class="page-item"><a href="#" class="page-link">2 </a></li>
-                            <li class="page-item"><a href="#" class="page-link">3 </a></li>
-                            <li class="page-item"><a href="#" class="page-link">4 </a></li>
-                            <li class="page-item"><a href="#" class="page-link">5 </a></li>
-                            <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span
-                                        aria-hidden="true">Next</span><span class="sr-only">Next </span></a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <!-- / Grid End-->
-            <!-- Sidebar-->
-            <div data-sly-test="${properties.isSearch}" data-sly-unwrap>
-                <div class="sidebar col-xl-3 col-lg-4 order-lg-1">
-                    <div class="sidebar-block px-3 px-lg-0 mr-lg-4"><a data-toggle="collapse" href="#priceFilterMenu"
-                            aria-expanded="false" aria-controls="priceFilterMenu" class="d-lg-none block-toggler">Filtrer par prix</a>
-                        <div id="priceFilterMenu" class="expand-lg collapse">
-                            <h6 class="sidebar-heading d-none d-lg-block">Prix </h6>
-    
-                            <script>
-                                $(function () {
-                                    $("#slider-range").slider({
-                                        range: true,
-                                        min: 0,
-                                        max: 500,
-                                        values: [$("#slider-snap-input-lower").val(), $("#slider-snap-input-upper").val()],
-                                        slide: function (event, ui) {
-                                            $("#slider-snap-input-lower").val("€" + ui.values[0]);
-                                            $("#slider-snap-input-upper").val("€" + ui.values[1]);
-                                        },
-                                        stop: function (event, ui) {
-                                            var str = $("form").serialize();
-                                            var priceMin = ui.values[0];
-                                            var priceMax = ui.values[1];
-                                            var search = $('.search-area-input').val();
-                                            console.info(search + " " + priceMin + " " + priceMax);
-                                            $("#slider-snap-input-lower").val(ui.values[0]);
-                                            $("#slider-snap-input-upper").val(ui.values[1]);
-                                            var categoriesSave = $('.categoriesFacets input').map(function () {
-                                                var param = "catValue=" + $(this).attr("data") + "&catId=" + $(this).val();
-                                                if ($(this).is(':checked'))
-                                                    param += "&catCheck=true"
-                                                else
-                                                    param += "&catCheck=false"
-                                                return param;
-    
-                                            }).get().join('&');
-                                            $.get("/content/cultura/fr/resultat-de-la-recherche/jcr:content/root/responsivegrid/product_grid_magento.html?search=" +
-                                                search + "&priceMin=" + priceMin + "&priceMax=" + priceMax + "&" + categoriesSave + "&" + str, function (data) {
-    
-                                                    $(".product-grid-magento").html(data);
-                                                });
-                                        }
-                                    });
-                                    $("#slider-snap-input-lower").val($("#slider-range").slider("values", 0));
-                                    $("#slider-snap-input-upper").val($("#slider-range").slider("values", 1));
-    
-                                });
-    
-                            </script>
-                            <div id="slider-range"></div>
-                            <div class="nouislider-values">
-                                <div class="min">
-                                    <span id="slider-snap-value-lower">De €
-                                        <input type="text" name="pricefrom" value="${!request.requestParameterMap['priceMin'] ? 0 :
-                                                        request.requestParameterMap['priceMin'][0].toString}" readonly
-                                            id="slider-snap-input-lower" class="slider-snap-input" style="border:0">
-                                    </span>
+            <div class="row row-space">
+                <div data-sly-repeat="${products.productsFromSearch}" class="product-slider-item" data-sly-unwrap>
+                    <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
+                        <div class="product product-grid">
+                            <div class="product-image">
+                                <div data-sly-test="${item.prices[0].isDiscount == true}" data-sly-unwrap>
+                                    <div class="ribbon ribbon-primary">Promo</div>
                                 </div>
-                                <div class="max">
-                                    <span id="slider-snap-value-upper">À €
-                                        <input type="text" value="${!request.requestParameterMap['priceMax'] ? 500 :
-                                                        request.requestParameterMap['priceMax'][0].toString}"
-                                            name="priceto" readonly id="slider-snap-input-upper" class="slider-snap-input"
-                                            style="border:0">
-                                    </span>
+                                <img src="${item.image}" alt="product" class="img-fluid" />
+                                <div class="product-hover-overlay"><a href="#l" class="product-hover-overlay-link"></a>
+                                    <div class="product-hover-overlay-buttons"><a href="#"
+                                            class="btn btn-outline-dark btn-product-left"><i
+                                                class="fa fa-shopping-cart"></i></a><a href="#l"
+                                            class="btn btn-dark btn-buy"><i class="fa-search fa"></i><span
+                                                class="btn-buy-label ml-2">Aperçu</span></a><a href="#"
+                                            data-toggle="modal" data-target="#exampleModal"
+                                            class="btn btn-outline-dark btn-product-right"><i
+                                                class="fa fa-expand-arrows-alt"></i></a>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="content-detail">
+                                <p class="content-text-title"><a href="/content/cultura/fr/product.${item.sku}.html"
+                                        class="text-title-link">${item.name}</a></p>
+                                <div data-sly-test="${item.isInStock == true}" data-sly-unwrap>
+                                    <p class="content-text-stock">En Stock</p>
+                                </div>
+                                <div data-sly-test="${item.isInStock == false}" data-sly-unwrap>
+                                    <p class="content-text-stock">Rupture de Stock</p>
+                                </div>
+                                <p class="content-text-price">${ '#.##' @ format=item.prices[0].price} &#8364;</p>
+                                <a class="btn" href="/content/cultura/fr/product.${item.sku}.html" role="button">Ajouter
+                                    au panier</a>
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar-block px-3 px-lg-0 mr-lg-4"> <a data-toggle="collapse" href="#sizeFilterMenu"
-                            aria-expanded="false" aria-controls="sizeFilterMenu" class="d-lg-none block-toggler">Filtrer par catégorie</a>
-                        <!-- Size filter menu-->
-                        <div id="sizeFilterMenu" class="expand-lg collapse">
-                            <h6 class="sidebar-heading d-none d-lg-block">Catégories </h6>
-                            <form action="#" class="mt-4 mt-lg-0" id="categorIdForm">
-                                <div data-sly-test="${request.requestParameterMap['catId']}" data-sly-unwrap>
-                                    <div class="form-group mb-1 categoriesFacets"
-                                        data-sly-repeat="${request.requestParameterMap['catId']}">
-                                        <div class="custom-control custom-checkbox">
-                                            <div data-sly-test="${request.requestParameterMap['catCheck'][itemList.index].toString}"
-                                                data-sly-unwrap>
-                                                <input id="size${itemList.index}" type="checkbox" name="categoryId"
-                                                    class="custom-control-input" value="${item.toString}"
-                                                    data="${request.requestParameterMap['catValue'][itemList.index].toString}"
-                                                    checked>
-                                            </div>
-                                            <div data-sly-test="${!request.requestParameterMap['catCheck'][itemList.index].toString}"
-                                                data-sly-unwrap>
-                                                <input id="size${itemList.index}" type="checkbox" name="categoryId"
-                                                    class="custom-control-input" value="${item.toString}"
-                                                    data="${request.requestParameterMap['catValue'][itemList.index].toString}">
-                                            </div>
-    
-                                            <label for="size${itemList.index}"
-                                                class="custom-control-label">${request.requestParameterMap['catValue'][itemList.index].toString}</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-sly-test="${!request.requestParameterMap['catId']}" data-sly-unwrap>
-                                    <div class="form-group mb-1 categoriesFacets"
-                                        data-sly-repeat="${products.facets.categoryId}">
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="size${itemList.index}" type="checkbox" name="categoryId"
-                                                class="custom-control-input" value="${item.key}" data='${item.value}'>
-                                            <label for="size${itemList.index}"
-                                                class="custom-control-label">${item.value}</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
-    
+                <!-- /product-->
             </div>
-            <!-- /Sidebar end-->
+            <div data-sly-test="${products.productsFromSearch.size}" data-sly-unwrap>
+                <nav aria-label="page navigation" class="d-flex justify-content-center mb-5 mt-3">
+                    <ul class="pagination">
+                        <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span
+                                    aria-hidden="true">Prev</span><span class="sr-only">Previous</span></a></li>
+                        <li class="page-item active"><a href="#" class="page-link">1 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">2 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">3 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">4 </a></li>
+                        <li class="page-item"><a href="#" class="page-link">5 </a></li>
+                        <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span
+                                    aria-hidden="true">Next</span><span class="sr-only">Next </span></a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+        <!-- / Grid End-->
+        <!-- Sidebar-->
+        <div data-sly-test="${properties.isSearch}" data-sly-unwrap>
+            <div class="sidebar col-xl-3 col-lg-4 order-lg-1">
+                <div class="sidebar-block px-3 px-lg-0 mr-lg-4"><a data-toggle="collapse" href="#priceFilterMenu"
+                        aria-expanded="false" aria-controls="priceFilterMenu" class="d-lg-none block-toggler">Filtrer
+                        par prix</a>
+                    <div id="priceFilterMenu" class="expand-lg collapse">
+                        <h6 class="sidebar-heading d-none d-lg-block">Prix </h6>
+                        <script>
+                            $(function () {
+                                $("#slider-range").slider({
+                                    range: true,
+                                    min: 0,
+                                    max: 500,
+                                    values: [$("#slider-snap-input-lower").val(), $("#slider-snap-input-upper").val()],
+                                    slide: function (event, ui) {
+                                        $("#slider-snap-input-lower").val("€" + ui.values[0]);
+                                        $("#slider-snap-input-upper").val("€" + ui.values[1]);
+                                    },
+                                    stop: function (event, ui) {
+                                        var str = $("form").serialize();
+                                        var priceMin = ui.values[0];
+                                        var priceMax = ui.values[1];
+                                        var search = $('.search-area-input').val();
+                                        console.info(search + " " + priceMin + " " + priceMax);
+                                        $("#slider-snap-input-lower").val(ui.values[0]);
+                                        $("#slider-snap-input-upper").val(ui.values[1]);
+                                        var categoriesSave = $('.categoriesFacets input').map(function () {
+                                            var param = "catValue=" + $(this).attr("data") + "&catId=" + $(this).val();
+                                            if ($(this).is(':checked'))
+                                                param += "&catCheck=true"
+                                            else
+                                                param += "&catCheck=false"
+                                            return param;
+
+                                        }).get().join('&');
+                                        $.get("/content/cultura/fr/resultat-de-la-recherche/jcr:content/root/responsivegrid/product_grid_magento.html?search=" +
+                                            search + "&priceMin=" + priceMin + "&priceMax=" + priceMax + "&" + categoriesSave + "&" + str, function (data) {
+
+                                                $(".product-grid-magento").html(data);
+                                            });
+                                    }
+                                });
+                                $("#slider-snap-input-lower").val($("#slider-range").slider("values", 0));
+                                $("#slider-snap-input-upper").val($("#slider-range").slider("values", 1));
+
+                            });
+
+                        </script>
+                        <div id="slider-range"></div>
+                        <div class="nouislider-values">
+                            <div class="min">
+                                <span id="slider-snap-value-lower">De €
+                                    <input type="text" name="pricefrom" value="${!request.requestParameterMap['priceMin'] ? 0 :
+                                                        request.requestParameterMap['priceMin'][0].toString}" readonly
+                                        id="slider-snap-input-lower" class="slider-snap-input" style="border:0">
+                                </span>
+                            </div>
+                            <div class="max">
+                                <span id="slider-snap-value-upper">À €
+                                    <input type="text" value="${!request.requestParameterMap['priceMax'] ? 500 :
+                                                        request.requestParameterMap['priceMax'][0].toString}"
+                                        name="priceto" readonly id="slider-snap-input-upper" class="slider-snap-input"
+                                        style="border:0">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-block px-3 px-lg-0 mr-lg-4"> <a data-toggle="collapse" href="#sizeFilterMenu"
+                        aria-expanded="false" aria-controls="sizeFilterMenu" class="d-lg-none block-toggler">Filtrer
+                        par
+                        catégorie</a>
+                    <!-- Size filter menu-->
+                    <div id="sizeFilterMenu" class="expand-lg collapse">
+                        <h6 class="sidebar-heading d-none d-lg-block">Catégories </h6>
+                        <form action="#" class="mt-4 mt-lg-0" id="categorIdForm">
+                            <div data-sly-test="${request.requestParameterMap['catId']}" data-sly-unwrap>
+                                <div class="form-group mb-1 categoriesFacets"
+                                    data-sly-repeat="${request.requestParameterMap['catId']}">
+                                    <div class="custom-control custom-checkbox">
+                                        <div data-sly-test="${request.requestParameterMap['catCheck'][itemList.index].toString}"
+                                            data-sly-unwrap>
+                                            <input id="size${itemList.index}" type="checkbox" name="categoryId"
+                                                class="custom-control-input" value="${item.toString}"
+                                                data="${request.requestParameterMap['catValue'][itemList.index].toString}"
+                                                checked>
+                                        </div>
+                                        <div data-sly-test="${!request.requestParameterMap['catCheck'][itemList.index].toString}"
+                                            data-sly-unwrap>
+                                            <input id="size${itemList.index}" type="checkbox" name="categoryId"
+                                                class="custom-control-input" value="${item.toString}"
+                                                data="${request.requestParameterMap['catValue'][itemList.index].toString}">
+                                        </div>
+
+                                        <label for="size${itemList.index}"
+                                            class="custom-control-label">${request.requestParameterMap['catValue'][itemList.index].toString}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-sly-test="${!request.requestParameterMap['catId']}" data-sly-unwrap>
+                                <div class="form-group mb-1 categoriesFacets"
+                                    data-sly-repeat="${products.facets.categoryId}">
+                                    <div class="custom-control custom-checkbox">
+                                        <input id="size${itemList.index}" type="checkbox" name="categoryId"
+                                            class="custom-control-input" value="${item.key}" data='${item.value}'>
+                                        <label for="size${itemList.index}"
+                                            class="custom-control-label">${item.value}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /Sidebar end-->
     </div>
+</div>

@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "id",
 "sku",
 "name",
+"description",
 "attribute_set_id",
 "price",
 "status",
@@ -37,6 +38,8 @@ private Integer id;
 private String sku;
 @JsonProperty("name")
 private String name;
+@JsonProperty("description")
+private String description;
 @JsonProperty("attribute_set_id")
 private Integer attributeSetId;
 @JsonProperty("price")
@@ -96,6 +99,16 @@ return name;
 @JsonProperty("name")
 public void setName(String name) {
 this.name = name;
+}
+
+@JsonProperty("description")
+public String getDescription() {
+return description;
+}
+
+@JsonProperty("description")
+public void setId(String description) {
+this.description = description;
 }
 
 @JsonProperty("attribute_set_id")
