@@ -23,7 +23,7 @@
                     jcr:lastModified="{Date}2019-04-25T17:12:28.744+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aem-template/components/content/search"/>
+                    sling:resourceType="aem-template/components/structure/search"/>
                 <product_grid_magento
                     jcr:created="{Date}2019-04-25T17:02:17.417+02:00"
                     jcr:createdBy="admin"

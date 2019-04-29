@@ -21,7 +21,7 @@
                     jcr:lastModified="{Date}2019-04-19T14:15:44.555+02:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aem-template/components/content/product-detail"
+                    sling:resourceType="aem-template/components/structure/product-detail"
                     description="Product description"
                     title="Product title"/>
                 <dynamicmedia
@@ -44,7 +44,6 @@
                     videoserverurl="http://s7e4a.scene7.com/is/content/"
                     viewerPath="http://s7e4a.scene7.com/s7viewers/"/>
             </responsivegrid>
-            
         </root>
     </jcr:content>
 </jcr:root>
