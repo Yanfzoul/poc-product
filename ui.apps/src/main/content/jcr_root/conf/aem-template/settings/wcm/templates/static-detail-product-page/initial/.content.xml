@@ -44,23 +44,7 @@
                     videoserverurl="http://s7e4a.scene7.com/is/content/"
                     viewerPath="http://s7e4a.scene7.com/s7viewers/"/>
             </responsivegrid>
-            <panel
-                jcr:created="{Date}2019-04-19T10:10:55.585+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2019-04-19T10:11:34.977+02:00"
-                jcr:lastModifiedBy="admin"
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Section"
-                sling:resourceType="fd/af/components/panel"
-                guideNodeClass="guidePanel"
-                name="panel1555661455910">
-                <layout
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="fd/af/layouts/gridFluidLayout"
-                    nonNavigable="{Boolean}true"
-                    toolbarPosition="Bottom"/>
-                <items jcr:primaryType="nt:unstructured"/>
-            </panel>
+            
         </root>
     </jcr:content>
 </jcr:root>

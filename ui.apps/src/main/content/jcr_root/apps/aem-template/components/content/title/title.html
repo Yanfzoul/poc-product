@@ -25,7 +25,6 @@
          data-sly-use.template="core/wcm/components/commons/v1/templates.html"
          data-sly-test="${text}">
         <h1 data-sly-element="${title.type}" style="${styles.text @ context='styleString'}">${text}</h1>
-        <h2 class="search-sub-title">"${!request.requestParameterMap['search'] ? '' :  request.requestParameterMap['search'][0].toString}"</h2>
     </div>
 </sly>
 

@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="ProductsV2"
     sling:resourceSuperType="foundation/components/parbase"
-    componentGroup="Editorial"/>
+    componentGroup=".hidden"/>
