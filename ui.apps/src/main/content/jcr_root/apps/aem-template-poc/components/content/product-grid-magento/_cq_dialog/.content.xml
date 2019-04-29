@@ -57,9 +57,8 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                 checked="${not empty cqDesign.isSearch ? cqDesign.isSearch : false}"
-                                                fieldDescription="Check if the image should be ignored by assistive technology and therefore does not require an alternative text. This applies to decorative images only."
                                                 name="./isSearch"
-                                                text="Grid is for search page"
+                                                text="Activer le mode recherche"
                                                 uncheckedValue="false"
                                                 value="{Boolean}true"/>
                                         </items>
