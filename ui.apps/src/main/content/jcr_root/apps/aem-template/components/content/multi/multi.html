@@ -1,7 +1,9 @@
 <meta data-sly-use.clientlib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-unwrap/>
 
-<div class="aem-Grid aem-Grid--12">
-    <div data-sly-use.multi="multi.js" data-sly-unwrap>
+<div data-sly-use.multi="multi.js" data-sly-unwrap>
+	<div class="aem-Grid aem-Grid--12 background-${properties.background}"
+         style="${multi.styles @ context='styleString'}">
+
         <div data-sly-test="${multi.sectionNumber >= 1 }" data-sly-unwrap>
             <div class="aem-GridColumn aem-GridColumn--default--${multi.sectionWidth}">
                 <div class="overlay"></div>

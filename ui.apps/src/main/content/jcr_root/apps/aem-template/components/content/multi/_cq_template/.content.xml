@@ -3,8 +3,8 @@
     jcr:primaryType="nt:unstructured"
     background="color"
     backgroundColorClass="#777777"
-    paddingBottom="0"
-    paddingLeft="0"
-    paddingRight="0"
-    paddingTop="0"
+    paddingBottom="0px"
+    paddingLeft="0px"
+    paddingRight="0px"
+    paddingTop="0px"
     section="1"/>
