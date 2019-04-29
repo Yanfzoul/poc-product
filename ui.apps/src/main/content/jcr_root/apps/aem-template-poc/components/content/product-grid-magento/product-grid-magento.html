@@ -39,6 +39,19 @@
                         </div>
                     </div>
                     <!-- /product-->
+                    <!-- events -->
+            <div data-sly-repeat="${products.events.items}" class="product-slider-item" data-sly-unwrap>
+                <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
+                    <div class="product product-grid">
+                        <div class="content-detail">
+                            <p class="content-text-title"><a href="#" class="text-title-link">${item.libelle}</a></p>
+                            <p class="content-text-stock">${item.lieu}</p>
+                            <p class="content-text-price">de ${item.dates[0]} ï¿½ ${item.dates[1]}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /events-->
                 </div>
                 <div data-sly-test="${products.productsFromSearch.size}" data-sly-unwrap>
                     <nav aria-label="page navigation" class="d-flex justify-content-center mb-5 mt-3">
@@ -55,35 +68,6 @@
                         </ul>
                     </nav>
                 </div>
-                <!-- /product-->
-                <!-- events -->
-                <div data-sly-repeat="${products.events.items}" class="product-slider-item" data-sly-unwrap>
-                    <div class="col-xl-${properties.isSearch ? '4' : '3' } col-sm-${properties.isSearch ? '6' : '4' }">
-                        <div class="product product-grid">
-                            <div class="content-detail">
-                                <p class="content-text-title"><a href="#" class="text-title-link">${item.libelle}</a></p>
-                                <p class="content-text-stock">${item.lieu}</p>
-                                <p class="content-text-price">de ${item.dates[0]} à ${item.dates[1]}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /events-->
-            </div>
-            <div data-sly-test="${products.productsFromSearch.size}" data-sly-unwrap>
-                <nav aria-label="page navigation" class="d-flex justify-content-center mb-5 mt-3">
-                    <ul class="pagination">
-                        <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span
-                                    aria-hidden="true">Prev</span><span class="sr-only">Previous</span></a></li>
-                        <li class="page-item active"><a href="#" class="page-link">1 </a></li>
-                        <li class="page-item"><a href="#" class="page-link">2 </a></li>
-                        <li class="page-item"><a href="#" class="page-link">3 </a></li>
-                        <li class="page-item"><a href="#" class="page-link">4 </a></li>
-                        <li class="page-item"><a href="#" class="page-link">5 </a></li>
-                        <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span
-                                    aria-hidden="true">Next</span><span class="sr-only">Next </span></a></li>
-                    </ul>
-                </nav>
             </div>
             <!-- / Grid End-->
             <!-- Sidebar-->
