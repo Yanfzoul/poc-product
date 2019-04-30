@@ -1,6 +1,6 @@
 $(function () {
     $('.search-area-input').on('keyup', function () {
-        var search = $('.search-area-input').val();
+        var search = $('.search-area-input').val().replace(/ /g,',');
         var priceMin = $("#slider-snap-input-lower").val();
         var priceMax = $("#slider-snap-input-upper").val();
         console.info(search + " " + priceMin + " " + priceMax);
@@ -13,7 +13,7 @@ $(function () {
 
     $(document).on('change', '.categoriesFacets input', function () {
         var str = $("form").serialize();
-        var search = $('.search-area-input').val();
+        var search = $('.search-area-input').val().replace(/ /g,',');
         var priceMin = $("#slider-snap-input-lower").val();
         var priceMax = $("#slider-snap-input-upper").val();
 

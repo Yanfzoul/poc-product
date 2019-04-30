@@ -108,7 +108,7 @@
                                         var str = $("form").serialize();
                                         var priceMin = ui.values[0];
                                         var priceMax = ui.values[1];
-                                        var search = $('.search-area-input').val();
+                                        var search = $('.search-area-input').val().replace(/ /g,',');
                                         console.info(search + " " + priceMin + " " + priceMax);
                                         $("#slider-snap-input-lower").val(ui.values[0]);
                                         $("#slider-snap-input-upper").val(ui.values[1]);
